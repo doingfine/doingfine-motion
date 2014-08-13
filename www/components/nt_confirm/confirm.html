@@ -1,0 +1,24 @@
+<ion-view title="Challenge">
+  <ion-nav-bar>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" ui-sref="newthreadselectfriend">Cancel</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header" padding="true">
+
+    <div class="card">
+      <div class="item item-text-wrap">
+        Challenge your friend {{selectedFriend.first}} {{selectedFriend.last}} to mirror this face.
+      </div>
+    </div>
+
+    <img ng-src="{{capturedImageURI}}" style="width: 100%">
+
+    <!-- someone please center this :) -->
+    <button class="button button-large button-energized" ng-click="confirm()">
+      Challenge {{selectedFriend.first}}
+    </button>
+
+  </ion-content>
+</ion-view>

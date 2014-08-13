@@ -1,0 +1,35 @@
+
+<div class="bar bar-header bar-stable">
+  <button class="button button-icon icon ion-arrow-left-c" ui-sref="menu.status"></button>
+  <div class="h1 title">{{participants[1].first}}</div>
+  <button class="button button-icon icon ion-reply" ng-click="replyPhoto(participants[1])"></button>
+</div>
+
+
+<ion-view title="Friend">
+
+  <ion-content class="has-header" padding="false">
+
+    <!--orderBy:'createdAt' does not work with css margin. Need array in chronological order-->
+    <div ng-repeat="photo in photos" ng-class="{'offset' : $index > 0 && photos[$index - 1].owner !== photo.owner}">
+      <div class="row">
+        <div class="col-50" ng-class="{'col-offset-50': photo.owner === participants[0]._id}">
+          <img ng-src="{{photo.url}}" class="thread-photo" ng-click="openModal(photo.url)">
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <div class="modal modal-background">
+    <ion-header-bar class="bar bar-header modal-background">
+      <h1 class="title"></h1>
+      <i ng-click="closeModal()" class="button button-icon button-positive icon ion-ios7-close-empty"></i>
+    </ion-header-bar>
+    <ion-content class="center">
+      <img ng-src="{{modal.url}}" class="modal-photo">
+    </ion-content>
+  </div>
+</script>
