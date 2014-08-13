@@ -1,0 +1,37 @@
+<ion-view title="Status" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-camera" ui-sref="newthreadgetready"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header" padding="true">
+
+	  <!-- <div class="list">
+	    <a class="item item-avatar" ui-sref="thread">
+	      <img src="img/1.jpg">
+	    	<h2>Shawn</h2>
+	    </a>
+		</div> -->
+    <!-- Used to seed database with current user data. Uncomment and click button to add seed data. Delete when current user is live. -->
+    <!-- <div class="row">
+      <div  ng-click="seedDataBase()">Seed Data Base</div>
+    </div> -->
+
+    <ion-list>
+      <ion-item ng-repeat="thread in threads | orderBy: '-updated_at' " ng-click="selectThread(thread)" ng-class="{unread: !thread.creatorRead}">
+        {{thread.participants[1].first}} {{thread.participants[1].last}}
+        <div class="row">
+          <div ng-repeat="photo in thread.photos | limitTo: -3" class="col-25">
+            <img ng-src="{{photo.url}}" class="thread-photo">
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
+
+
