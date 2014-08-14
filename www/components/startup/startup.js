@@ -1,4 +1,4 @@
-angular.module('faceoff.startup', [
+angular.module('doingfine.startup', [
 	'ionic',
 	'services'
 	])

@@ -1,4 +1,4 @@
-angular.module('faceoff.newthreadconfirm', [
+angular.module('doingfine.newthreadconfirm', [
 	'ionic',
 	'services'
 	])

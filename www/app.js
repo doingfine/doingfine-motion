@@ -9,17 +9,17 @@ angular.module('app', [
   'ionic', 
   'services', // break up later
   'ngCordova',
-  'faceoff.startup',
-  'faceoff.signupphone',
-  'faceoff.signupname',
-  'faceoff.signupconfirm',
-  'faceoff.newthreadgetready',
-  'faceoff.newthreadselectfriend',
-  'faceoff.newthreadconfirm',
-  'faceoff.menu',
-  'faceoff.status',
-  'faceoff.thread',
-  'faceoff.confirmaccount'
+  'doingfine.startup',
+  'doingfine.signupphone',
+  'doingfine.signupname',
+  'doingfine.signupconfirm',
+  'doingfine.newthreadgetready',
+  'doingfine.newthreadselectfriend',
+  'doingfine.newthreadconfirm',
+  'doingfine.menu',
+  'doingfine.status',
+  'doingfine.thread',
+  'doingfine.confirmaccount'
   ])
 
 .config(function($compileProvider, $stateProvider, $urlRouterProvider) {
@@ -123,10 +123,6 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { _id: 0, first: '', last: '', status: 'fresh', uuid: '1234' },
-      { _id: 1, first: 'G.I.', last: 'Joe', status: 'pending', uuid: '2345', phone: 1112223333 },
-      { _id: 2, first: 'Miss', last: 'Frizzle', status: 'confirmed', uuid: '3456', phone: 2223334444 },
-      { _id: 3, first: 'Ash', last: 'Ketchum', status: 'confirmed', uuid: '4567', phone: 3334445555 },
       { _id: '53c88bfa5591db000025b15f', first: 'Dave', last: 'G-W', phone: 5553331234, email: 'dave@me.com', status: 'confirmed', threads: [], uuid: 'dave123'}
     ];
 
@@ -138,6 +134,7 @@ angular.module('app', [
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
+      console.log("HERE");
       var deviceUser = { first: '', last: '', status: 'fresh', uuid: Device.getItem('uuid') };
       console.log("Device User: ", JSON.stringify(deviceUser));
       window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));

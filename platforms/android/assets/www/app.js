@@ -9,17 +9,17 @@ angular.module('app', [
   'ionic', 
   'services', // break up later
   'ngCordova',
-  'faceoff.startup',
-  'faceoff.signupphone',
-  'faceoff.signupname',
-  'faceoff.signupconfirm',
-  'faceoff.newthreadgetready',
-  'faceoff.newthreadselectfriend',
-  'faceoff.newthreadconfirm',
-  'faceoff.menu',
-  'faceoff.status',
-  'faceoff.thread',
-  'faceoff.confirmaccount'
+  'doingfine.startup',
+  'doingfine.signupphone',
+  'doingfine.signupname',
+  'doingfine.signupconfirm',
+  'doingfine.newthreadgetready',
+  'doingfine.newthreadselectfriend',
+  'doingfine.newthreadconfirm',
+  'doingfine.menu',
+  'doingfine.status',
+  'doingfine.thread',
+  'doingfine.confirmaccount'
   ])
 
 .config(function($compileProvider, $stateProvider, $urlRouterProvider) {

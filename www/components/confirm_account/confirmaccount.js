@@ -1,4 +1,4 @@
-angular.module('faceoff.confirmaccount', [
+angular.module('doingfine.confirmaccount', [
 	'ionic',
 	'services'
 	])

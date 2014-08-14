@@ -1,4 +1,4 @@
-angular.module('faceoff.thread', [
+angular.module('doingfine.thread', [
 	'ionic'
 	])
 

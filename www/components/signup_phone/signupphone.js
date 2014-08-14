@@ -1,4 +1,4 @@
-angular.module('faceoff.signupphone', [
+angular.module('doingfine.signupphone', [
 	'ionic',
 	'services'
 	])

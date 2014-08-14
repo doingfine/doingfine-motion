@@ -1,4 +1,4 @@
-angular.module('faceoff.newthreadgetready', [
+angular.module('doingfine.newthreadgetready', [
 	'ionic',
 	'services'
 	])

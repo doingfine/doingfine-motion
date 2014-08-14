@@ -1,8 +1,21 @@
-angular.module('faceoff.menu', [
+'use strict';
+angular.module('doingfine.menu', [
 	'ionic'
 	])
 
-.controller('MenuController', function($scope) {
-	// see if needed
+.controller('MenuController', function ($scope) {
+	$scope.friends = [
+    {
+      first: 'Shawn',
+      last: 'Hartley'
+    },
+    {
+      first: 'Nelson',
+      last: 'Riley'
+    },
+    {
+      first: 'Andrew',
+      last: 'Zey'
+    }];
 
-});
+ });
