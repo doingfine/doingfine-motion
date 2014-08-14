@@ -1,4 +1,4 @@
-angular.module('faceoff.newthreadselectfriend', [
+angular.module('doingfine.newthreadselectfriend', [
 	'ionic',
 	'services'
 	])

@@ -1,4 +1,4 @@
-angular.module('faceoff.menu', [
+angular.module('doingfine.menu', [
 	'ionic'
 	])
 

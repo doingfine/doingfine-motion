@@ -1,4 +1,4 @@
-angular.module('faceoff.status', [
+angular.module('doingfine.status', [
 	'ionic',
 	'services'
 	])

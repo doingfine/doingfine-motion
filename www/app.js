@@ -9,17 +9,17 @@ angular.module('app', [
   'ionic', 
   'services', // break up later
   'ngCordova',
-  'faceoff.startup',
-  'faceoff.signupphone',
-  'faceoff.signupname',
-  'faceoff.signupconfirm',
-  'faceoff.newthreadgetready',
-  'faceoff.newthreadselectfriend',
-  'faceoff.newthreadconfirm',
-  'faceoff.menu',
-  'faceoff.status',
-  'faceoff.thread',
-  'faceoff.confirmaccount'
+  'doingfine.startup',
+  'doingfine.signupphone',
+  'doingfine.signupname',
+  'doingfine.signupconfirm',
+  'doingfine.newthreadgetready',
+  'doingfine.newthreadselectfriend',
+  'doingfine.newthreadconfirm',
+  'doingfine.menu',
+  'doingfine.status',
+  'doingfine.thread',
+  'doingfine.confirmaccount'
   ])
 
 .config(function($compileProvider, $stateProvider, $urlRouterProvider) {
@@ -129,11 +129,12 @@ angular.module('app', [
     // if no device data is available, we can assume we are in the browser
     if (ionic.Platform.device().uuid === undefined) {
       // so we manually specify a deviceUser profile (simulation mode)
-      window.localStorage.setItem('deviceUser', JSON.stringify(simulationUsers[4]));
+      window.localStorage.setItem('deviceUser', JSON.stringify(simulationUsers[0]));
       Device.setItem('type', 'internetdevice');
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
+      console.log("HERE");
       var deviceUser = { first: '', last: '', status: 'fresh', uuid: Device.getItem('uuid') };
       console.log("Device User: ", JSON.stringify(deviceUser));
       window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));

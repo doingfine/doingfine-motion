@@ -5,7 +5,7 @@
 1. Fork the repo
 2. Clone down to local
 3. Create an upstream remote to faceoff master and pull from this often:<br>
-```git remote add upstream https://github.com/Face-Off/faceoff.git```
+```git remote add upstream https://github.com/Face-Off/doingfine.git```
 4. Make commits to your local master branch
 5. Pull from upstream master and resolve conflicts before pushing to your fork origin on github
 6. Push to your fork master
@@ -18,13 +18,13 @@
 
 Use github’s interface to make a fork of the project repo. Clone your forked repo to your local computer:
 ```
-git clone https://github.com/<USER_NAME>/faceoff.git
+git clone https://github.com/<USER_NAME>/doingfine.git
 ```
 
 Once complete navigate into the cloned folder and add the project repo as an upstream remote:
 ```
 cd faceoff
-git remote add upstream https://github.com/Face-Off/faceoff.git
+git remote add upstream https://github.com/Face-Off/doingfine.git
 ```
 
 ### Deploying the Server on Heroku
