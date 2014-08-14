@@ -3,26 +3,15 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('AccountService', ['$state', 'Device', 'API', function($state, Device, API) {
   
   return {
+    // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
-      var user = Device.user();
-
-      // we assume user is from local storage
-      if (user.status === 'fresh') {
+      if (Device.user().verified === false) {
         $state.go('signupphone');
-      } else if (user.status === 'pending') {
-        // update user from server, then check again
-        API.getUser(Device.user()._id).then(function(json) {
-          if (user.status === 'confirmed') {
-            $state.go('menu.status');
-          } else {
-            $state.go('confirmaccount');
-          }
-        })
-      } else if (user.status === 'confirmed') {
+      } else {
         $state.go('menu.status');
       }
     }
-  }
+  };
 
 }])
 
@@ -260,13 +249,19 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'http://localhost:9000';
-  var chrisAPIRoute = 'http://60ef5319.ngrok.com';
-  var shawnAPIRoute = 'https://nxiigmpoci.localtunnel.me';
-  var prodAPIRoute = 'http://tradingfaces.herokuapp.com';
+  var devAPIRoute = 'https://doingfine.localtunnel.me';
+  var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
-  var APIRoute = prodAPIRoute;
+  var APIRoute = devAPIRoute;
+
+  apiCall.newUser = function(userData) {
+    return $http({
+      url: APIRoute + '/api/mobileusers',
+      method: 'POST',
+      data: userData
+    });
+  };
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
@@ -276,14 +271,6 @@ angular.module('services', ['ngCordova', 'ionic'])
         id: userId,
         code: code
       }
-    });
-  };
-
-  apiCall.newUser = function(userData) {
-    return $http({
-      url: APIRoute + '/api/users',
-      method: 'POST',
-      data: userData
     });
   };
 
