@@ -45,6 +45,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('Contacts', ['$q', 'Device', function($q, Device) {
 
+  // utility: output standard '1113334488' format
   var concisePhone = function(phone) {
     // +1 (970) 618-7050  becomes  9706187050
     // remove '+1' '(' ')' '-' '.' ' '  LAST CHARACTER IS NOT AN EMPTY SPACE
@@ -54,6 +55,14 @@ angular.module('services', ['ngCordova', 'ionic'])
     // don't allow 1 at front of number
     if (phone.slice(0, 1) === '1') {
       phone = phone.slice(1);
+    }
+    return phone;
+  };
+
+  // utility: trim '+1' from a phone number
+  var phoneTrimCountryCode = function (phone) {
+    if (phone.slice(0,1) === '+') {
+      return phone.slice(2);
     }
     return phone;
   };
@@ -143,6 +152,9 @@ angular.module('services', ['ngCordova', 'ionic'])
     concisePhone: function(phone) {
       return concisePhone(phone);
     },
+    phoneTrimCountryCode: function(phone) {
+      return phoneTrimCountryCode(phone);
+    },
     contactsWithPhone: function(contacts) {
       if (Device.isPhone()) {
         return contactsWithPhone(contacts);
@@ -150,7 +162,7 @@ angular.module('services', ['ngCordova', 'ionic'])
         return computerContacts;
       }
     }
-  }
+  };
 
 }])
 
