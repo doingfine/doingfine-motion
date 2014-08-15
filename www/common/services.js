@@ -8,7 +8,7 @@ angular.module('services', ['ngCordova', 'ionic'])
       if (Device.user().verified === false) {
         $state.go('signupphone');
       } else {
-        $state.go('nofriends');
+        $state.go('menu.status');
       }
     }
   };

@@ -13,7 +13,6 @@ angular.module('app', [
   'doingfine.signupphone',
   'doingfine.signupname',
   'doingfine.signupconfirm',
-  'doingfine.nofriends',
   'doingfine.newthreadgetready',
   'doingfine.newthreadselectfriend',
   'doingfine.newthreadconfirm',
@@ -59,13 +58,6 @@ angular.module('app', [
       url: '/confirmaccount',
       templateUrl: 'components/confirm_account/confirmaccount.html',
       controller: 'ConfirmAccountController'
-    })
-
-    // when a user has no friends, redirect them here
-    .state('nofriends', {
-      url: '/addfriends',
-      templateUrl: "components/nofriends/nofriends.html",
-      controller: 'NoFriendsController'
     })
 
     //Sidebar Child Views
@@ -126,7 +118,7 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true }
+      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
     // if no device data is available, we can assume we are in the browser
