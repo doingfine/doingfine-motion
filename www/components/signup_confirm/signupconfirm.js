@@ -14,7 +14,7 @@ angular.module('doingfine.signupconfirm', [
 				var user = response.data;
 				if (user.verified) {
 					Device.user(user);
-					$state.go('menu');
+					$state.go('nofriends'); // fails to go to 'menu', will go to 'menu.status' however??
 				} else {
 					$scope.invalidCode();
 				}
