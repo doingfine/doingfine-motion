@@ -102,7 +102,7 @@ angular.module('app', [
       url: '/thread/:threadId',
       templateUrl: 'components/thread/thread.html',
       controller: 'ThreadController'
-    })
+    });
 
   // Default route
   $urlRouterProvider.otherwise('/startup');
@@ -118,19 +118,18 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { _id: '53c88bfa5591db000025b15f', first: 'Dave', last: 'G-W', phone: 5553331234, email: 'dave@me.com', status: 'confirmed', threads: [], uuid: 'dave123'}
+      { _id: '53c88bfa5591db000025b15f', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: false }
     ];
 
     // if no device data is available, we can assume we are in the browser
     if (ionic.Platform.device().uuid === undefined) {
       // so we manually specify a deviceUser profile (simulation mode)
-      window.localStorage.setItem('deviceUser', JSON.stringify(simulationUsers[0]));
+      Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
-      console.log("HERE");
-      var deviceUser = { first: '', last: '', status: 'fresh', uuid: Device.getItem('uuid') };
+      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
       window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));
       // Don't know why we need to do this here to work on phone
