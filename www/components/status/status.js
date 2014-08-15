@@ -4,7 +4,9 @@ angular.module('doingfine.status', [
 	'services'
 	])
 
-.controller('StatusController', function($scope, $state, API, Device) {
+.controller('StatusController', function($scope, $rootScope, API, Device) {
+  $scope.selectedFriend = $rootScope.selectedFriend;
+
   var onIcon = 'ion-social-rss', offIcon = 'ion-social-rss-outline';
   $scope.safeModeIcon = onIcon;
   $scope.user = Device.user();
