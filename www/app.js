@@ -118,7 +118,7 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true }
+      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
     // if no device data is available, we can assume we are in the browser

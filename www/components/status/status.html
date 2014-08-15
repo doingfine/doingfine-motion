@@ -4,12 +4,16 @@
   </ion-nav-buttons>
 
   <ion-nav-buttons side="right">
-    <button class="button button-icon icon {{safeModeIcon}}" ng-click="safeMode()"></button>
+    <button ng-show="hasFriends" class="button button-icon icon {{safeModeIcon}}" ng-click="safeMode()"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button ng-hide="hasFriends" class="button button-icon icon ion-ios7-personadd-outline"></button>
   </ion-nav-buttons>
 
   <ion-content class="has-header" padding="true">
 
-
+  	{{hasFriends}}
 
   </ion-content>
 </ion-view>
