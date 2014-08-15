@@ -4,8 +4,13 @@ angular.module('doingfine.status', [
 	'services'
 	])
 
-.controller('StatusController', function($scope, $rootScope) {
+.controller('StatusController', function($scope, $rootScope, Device) {
   $scope.selectedFriend = $rootScope.selectedFriend;
+
+  // $scope.hasfriends = true;
+  // if (Device.user().friends.length === 0) {
+  //   $scope.hasfriends = false;
+  // }
 
   var onIcon = 'ion-social-rss', offIcon = 'ion-social-rss-outline';
   $scope.safeModeIcon = onIcon;
