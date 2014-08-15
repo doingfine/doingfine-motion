@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -72,6 +76,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "org.apache.cordova.device-motion": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },

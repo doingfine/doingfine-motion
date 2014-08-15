@@ -53,25 +53,22 @@ angular.module('doingfine.newthreadconfirm', [
     console.log("Creating Photo");
     console.log("threadID ", threadId);
     console.log("userID ", userId);
-    API.newPhoto(threadId, userId, $scope.capturedImageURI, function(json){
-      console.log("Successful Photo Upload ", JSON.stringify(json));
-      $state.go('menu.status');
-    });
-      // .success(function(data) {
-      //   // If creator is defined mark the thread unread for appropriate party.
-      //   if (creator) {
-      //     if (userId === creator) {
-      //       API.recipientRead(threadId, false);
-      //     }
-      //     else {
-      //       API.creatorRead(threadId, false);
-      //     }
-      //   }
-      //   $state.go('menu.status');
-      // })
-      // .error(function(error) {
-      //   console.log(error);
-      // });
+    API.newPhoto(threadId, userId, $scope.capturedImageURI)
+      .then(function(data) {
+        // If creator is defined mark the thread unread for appropriate party.
+        if (creator) {
+          if (userId === creator) {
+            API.recipientRead(threadId, false);
+          }
+          else {
+            API.creatorRead(threadId, false);
+          }
+        }
+        $state.go('menu.status');
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   var init = function() {

@@ -16,4 +16,7 @@
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
+    <feature name="Accelerometer">
+      <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
 </widget>

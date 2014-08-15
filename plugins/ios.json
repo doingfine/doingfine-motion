@@ -48,6 +48,12 @@
                             "xml": "true",
                             "count": 1
                         }
+                    ],
+                    "CoreMotion.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -77,6 +83,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"ios-package\" value=\"CDVAccelerometer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -97,6 +107,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "org.apache.cordova.device-motion": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },

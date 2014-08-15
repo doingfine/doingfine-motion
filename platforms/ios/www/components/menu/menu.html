@@ -9,18 +9,13 @@
 
   <ion-side-menu side="left">
     <header class="bar bar-header bar-stable">
-      <h1 class="title">Face Off</h1>
+      <h1 class="title">Friends</h1>
     </header>
     <ion-content class="has-header">
       <ion-list>
-
-        <ion-item nav-clear menu-close ui-sref="newthreadgetready" class="item item-icon-left">
-          <i class="icon ion-camera"></i>
-          Make a Face
-        </ion-item>
-        <ion-item nav-clear menu-close ui-sref="menu.status" class="item item-icon-left">
-          <i class="icon ion-chatboxes"></i>
-          Face Offs
+        <ion-item ng-repeat="f in friends" nav-clear menu-close ui-sref="menu.status" class="item item-icon-left">
+          <i class="icon ion-ios7-person-outline"></i>
+          {{f.first}} {{f.last}}
         </ion-item>
 
 <!--         <ion-item nav-clear menu-close ui-sref="menu.profile">
