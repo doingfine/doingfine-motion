@@ -5,7 +5,7 @@ angular.module('doingfine.status', [
 	])
 
 .controller('StatusController', function($scope, $rootScope, Device) {
-  $scope.selectedFriend = $rootScope.selectedFriend;
+  $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
   $scope.hasFriends = true;
   if (Device.user().friends.length === 0) {
