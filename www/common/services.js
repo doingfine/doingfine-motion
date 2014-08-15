@@ -8,7 +8,7 @@ angular.module('services', ['ngCordova', 'ionic'])
       if (Device.user().verified === false) {
         $state.go('signupphone');
       } else {
-        $state.go('menu.status');
+        $state.go('nofriends');
       }
     }
   };
@@ -277,11 +277,10 @@ angular.module('services', ['ngCordova', 'ionic'])
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
-      url: APIRoute + '/api/users/confirm',
+      url: APIRoute + '/api/mobileusers/' + userId + '/verify',
       method: 'POST',
       data: {
-        id: userId,
-        code: code
+        code: JSON.stringify(code)
       }
     });
   };

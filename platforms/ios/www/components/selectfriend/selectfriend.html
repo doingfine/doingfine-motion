@@ -1,0 +1,29 @@
+<ion-view title="Select a Friend">
+  <ion-nav-bar>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" ui-sref="newthreadgetready">Cancel</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header" padding="true">
+
+    <!-- please center this :) -->
+    <img ng-src="{{capturedImageURI}}" style="width: 20%">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="searchText">
+      </label>
+    </div>
+
+    <ion-list>
+      <!-- | orderBy: 'last' -->
+      <ion-item ng-repeat="friend in friends |  filter: searchText" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->
+        {{friend.first}} {{friend.last}}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
+
