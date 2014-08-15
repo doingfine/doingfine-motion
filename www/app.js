@@ -75,11 +75,6 @@ angular.module('app', [
           templateUrl: 'components/status/status.html',
           controller: 'StatusController'
         }
-      },
-      resolve: {
-        threads: function(ThreadsService) {
-          return ThreadsService.all();
-        }
       }
     })
 

@@ -77,8 +77,8 @@ angular.module('app', [
         }
       },
       resolve: {
-        threads: function(ThreadsService) {
-          return ThreadsService.all();
+        threads: function(FriendsService) {
+          return FriendsService.all();
         }
       }
     })

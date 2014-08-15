@@ -15,7 +15,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 }])
 
-.factory('ThreadsService', function() {
+.factory('FriendsService', function() {
   // Some fake testing data
   var seedImgPath = 'img/seedFaces/'
   var currentUser = {
