@@ -129,9 +129,9 @@ angular.module('app', [
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
-      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI' }; // TODO: get vfid
+      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
-      window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));
+      Device.user(deviceUser);
       // Don't know why we need to do this here to work on phone
       // expect that accessing storage takes too long
       AccountService.authAndRoute();

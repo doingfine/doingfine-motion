@@ -1,50 +1,26 @@
+'use strict';
 angular.module('doingfine.status', [
 	'ionic',
 	'services'
 	])
 
-.controller('StatusController', function($scope, $state, API, Device) {
+.controller('StatusController', function($scope, $rootScope, Device) {
+  $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
-  $scope.user = Device.user();
-
-  var init = function() {
-    console.log("Fetch Users Now, User ID: ", $scope.user._id);
-    API.getAllThreadsData($scope.user._id)
-      .success(function(data) {
-        console.log("Success ", JSON.stringify(data));
-        $scope.threads = data.threads;
-      })
-      .error(function(error) {
-        console.log("Error ", JSON.stringify(error));
-      });
+  $scope.hasFriends = true;
+  if (Device.user().friends.length === 0) {
+   $scope.hasFriends = false;
   }
-  init();
 
-	$scope.selectThread = function(thread) {
-    // Mark thread as read before navigating to thread view.
-    if ($scope.user._id === thread.creator) {
-      API.creatorRead(thread._id, true);
-    }
-    else {
-      API.recipientRead(thread._id, true);
-    }
-		$state.go('thread', {threadId: thread._id});
-	};
+  var onIcon = 'ion-social-rss', offIcon = 'ion-social-rss-outline';
+  $scope.safeModeIcon = onIcon;
 
-  /*
-  // Used in testing for seeding a user with data. 
-  // Uncomment here and in status.html to add seed data to database.
-  $scope.seedDataBase = function() {
-    var userData = {
-      first: 'Dave',
-      last: 'G-W',
-      phone: 5553331234,
-      email: 'dave@me.com',
-      status: 'confirmed',
-      threads: [],
-      uuid: 'dave123'
+  $scope.safeMode = function () {
+    if ($scope.safeModeIcon === onIcon) {
+      $scope.safeModeIcon = offIcon;
+    } else {
+      $scope.safeModeIcon = onIcon;
     }
-    API.newUser(userData);
-  }
-  */
+  };
+
 });
