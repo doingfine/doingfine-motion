@@ -5,13 +5,13 @@ angular.module('doingfine.signupname', [
 
 .controller('SignUpNameController', function(Contacts, $scope, $state, $ionicPopup, Device, API) {
 
-	$scope.user = Device.user(); // has phone, status, uuid, first(blank), last(blank)
+	$scope.user = Device.user(); // has phone, status, idfv, first(blank), last(blank), friends(empty)
 
 	// Match device user's phone to name in contacts and update scope
 	// Goal: App onboarding process reduced to a single user-provided field (phone)
 	if (Device.isPhone()) {
 		Contacts.getAll().then(function(contacts) {
-			var match = Contacts.userMatchingPhone(contacts, Device.user().phone);
+			var match = Contacts.userMatchingPhone(contacts, Device.user().phone.slice(2)); // remove +1
 			if (match) {
 				$scope.user.first = match.first;
 				$scope.user.last = match.last;
@@ -20,6 +20,8 @@ angular.module('doingfine.signupname', [
 	}
 
 	$scope.completeSignUp = function() {
+
+		// todo: disable UI with spinning icon
 
 		if ($scope.user.first && $scope.user.first.length > 0 && $scope.user.last.length > 0) {
 			// update local user
