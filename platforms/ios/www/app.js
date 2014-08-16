@@ -55,8 +55,8 @@ angular.module('app', [
 
     // confirm account
     .state('confirmaccount', {
-      url: "/confirmaccount",
-      templateUrl: "components/confirm_account/confirmaccount.html",
+      url: '/confirmaccount',
+      templateUrl: 'components/confirm_account/confirmaccount.html',
       controller: 'ConfirmAccountController'
     })
 
@@ -74,11 +74,6 @@ angular.module('app', [
         'menuContent': {
           templateUrl: 'components/status/status.html',
           controller: 'StatusController'
-        }
-      },
-      resolve: {
-        threads: function(FriendsService) {
-          return FriendsService.all();
         }
       }
     })
@@ -107,7 +102,7 @@ angular.module('app', [
       url: '/thread/:threadId',
       templateUrl: 'components/thread/thread.html',
       controller: 'ThreadController'
-    })
+    });
 
   // Default route
   $urlRouterProvider.otherwise('/startup');
@@ -123,24 +118,20 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { id: 0, first: '', last: '', status: 'fresh', uuid: '1234' },
-      { id: 1, first: 'G.I.', last: 'Joe', status: 'pending', uuid: '2345', phone: 1112223333 },
-      { id: 2, first: 'Miss', last: 'Frizzle', status: 'confirmed', uuid: '3456', phone: 2223334444 },
-      { id: 3, first: 'Ash', last: 'Ketchum', status: 'confirmed', uuid: '4567', phone: 3334445555 },
-      { id: '53c88bfa5591db000025b15f', first: 'Dave', last: 'G-W', phone: 5553331234, email: 'dave@me.com', status: 'confirmed', threads: [], uuid: 'dave123'}
+      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
     // if no device data is available, we can assume we are in the browser
     if (ionic.Platform.device().uuid === undefined) {
       // so we manually specify a deviceUser profile (simulation mode)
-      window.localStorage.setItem('deviceUser', JSON.stringify(simulationUsers[0]));
+      Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
-      var deviceUser = { first: '', last: '', status: 'fresh', uuid: Device.getItem('uuid') };
+      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
-      window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));
+      Device.user(deviceUser);
       // Don't know why we need to do this here to work on phone
       // expect that accessing storage takes too long
       AccountService.authAndRoute();
