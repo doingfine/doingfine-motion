@@ -7,16 +7,16 @@ angular.module('doingfine.test', [
 .controller('TestController', function($scope, $cordovaDeviceMotion) {
   var watch;
 
-  $scope.getAcceleration = function () {
-    $cordovaDeviceMotion.getCurrentAcceleration().then(function(result) {
-      // Success!
-    }, function(err) {
-      // An error occured. Show a message to the user
-    });
-  };
+  // $scope.getAcceleration = function () {
+  //   $cordovaDeviceMotion.getCurrentAcceleration().then(function(result) {
+  //     // Success!
+  //   }, function(err) {
+  //     // An error occured. Show a message to the user
+  //   });
+  // };
 
   $scope.watchAcceleration = function () {
-    var options = { frequency: 1000 };  // Update every 1 second
+    var options = { frequency: 2000 };  // Update every 2 seconds
 
     watch = $cordovaDeviceMotion.watchAcceleration(options);
 
@@ -31,19 +31,44 @@ angular.module('doingfine.test', [
     });
   };
 
-  $scope.clearWatch = function() {
-  // use watchID from watchAccelaration()
-
-    if(!watch) { return; }
-
-    $cordovaDeviceMotion.clearWatch(watch.watchId).then(function(result) {
-      // Success!
-    }, function(err) {
-      // An error occured. Show a message to the user
-
-    });
-  };
+  // $scope.clearWatch = function() {
+  // // use watchID from watchAccelaration()
+	//
+  //   if(!watch) { return; }
+	//
+  //   $cordovaDeviceMotion.clearWatch(watch.watchId).then(function(result) {
+  //     // Success!
+  //   }, function(err) {
+  //     // An error occured. Show a message to the user
+	//
+  //   });
+  // };
 
 	$scope.watchAcceleration();
-	console.log('Hello');
+
+	var Fetcher = window.plugins.backgroundFetch;
+
+	// // Your background-fetch handler.
+	// var fetchCallback = function() {
+	// 		console.log('BackgroundFetch initiated');
+	//
+	// 		// cordova.plugin.notification.local.add({ message: 'Just fetched!' });  //local notification
+	// 		Fetcher.finish();   // <-- N.B. You MUST called #finish so that native-side can signal completion of the background-thread to the os.
+	//
+	// 		// // perform your ajax request to server here
+	// 		// $.get({
+	// 		//     url: '/heartbeat.json',
+	// 		//     callback: function(response) {
+	// 		//         // process your response and whatnot.
+	// 		//
+	// 		//         window.plugin.notification.local.add({ message: 'Just fetched!' });  //local notification
+	// 		//         Fetcher.finish();   // <-- N.B. You MUST called #finish so that native-side can signal completion of the background-thread to the os.
+	// 		//     }
+	// 		// });
+	// };
+
+	$scope.startBgProcess = function(){
+		// Fetcher.configure(fetchCallback);
+		Fetcher.configure();
+	};
 });

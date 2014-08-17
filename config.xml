@@ -19,4 +19,10 @@
     <feature name="Accelerometer">
       <param name="ios-package" value="CDVAccelerometer" />
     </feature>
+    <feature name="BackgroundFetch">
+      <param name="ios-package" value="CDVBackgroundFetch" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="ios-package" value="APPLocalNotification" />
+    </feature>
 </widget>

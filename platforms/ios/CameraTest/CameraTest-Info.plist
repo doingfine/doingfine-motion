@@ -79,5 +79,70 @@
     </array>
     <key>CFBundleShortVersionString</key>
     <string>0.0.1</string>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+      <string>fetch</string>
+      <string>location</string>
+    </array>
+    <key>NSLocationUsageDescription</key>
+    <string>Is required -for iOS 6 and above- to run the app in background!</string>
   </dict>
 </plist>

@@ -53,6 +53,10 @@
 		299CBBE56F664020BF011BE3 /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E88F9207C843C09C06F26F /* CDVFileTransfer.m */; };
 		19378F866B8F4CCEA5075045 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0729457BDA094404976B7DE8 /* CDVAccelerometer.m */; };
 		A7D5F58D9A364C59858E368B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD99E86E7DB846EE9294572C /* CoreMotion.framework */; };
+		D69CA2EF3D704186A1C9E18F /* CDVBackgroundFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = A551A5A35583463E883DF720 /* CDVBackgroundFetch.m */; };
+		DAF85940EA8341E09FA04685 /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA98A096C347C9B2BF4766 /* APPBackgroundMode.m */; };
+		AB83CFE0BC5E41E8861EDF00 /* APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEBA62342F041B8971FAC72 /* APPLocalNotification.m */; };
+		DA3496488EA542D688D16F35 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +148,14 @@
 		0729457BDA094404976B7DE8 /* CDVAccelerometer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAccelerometer.m"; path = "org.apache.cordova.device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		F68C51CDBDED4B6D81883A77 /* CDVAccelerometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAccelerometer.h"; path = "org.apache.cordova.device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		DD99E86E7DB846EE9294572C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreMotion.framework"; path = "System/Library/Frameworks/CoreMotion.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		A551A5A35583463E883DF720 /* CDVBackgroundFetch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVBackgroundFetch.m"; path = "org.transistorsoft.cordova.plugin.background.fetch/CDVBackgroundFetch.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		0AD10EEECD6B44FDAD2C16EC /* CDVBackgroundFetch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVBackgroundFetch.h"; path = "org.transistorsoft.cordova.plugin.background.fetch/CDVBackgroundFetch.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		38DA98A096C347C9B2BF4766 /* APPBackgroundMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "APPBackgroundMode.m"; path = "de.appplant.cordova.plugin.background-mode/APPBackgroundMode.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		4DD28FEE7390434CB0F922D7 /* APPBackgroundMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPBackgroundMode.h"; path = "de.appplant.cordova.plugin.background-mode/APPBackgroundMode.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		3CEBA62342F041B8971FAC72 /* APPLocalNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "APPLocalNotification.m"; path = "de.appplant.cordova.plugin.local-notification/APPLocalNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		515ED06673C448E288E48038 /* APPLocalNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPLocalNotification.h"; path = "de.appplant.cordova.plugin.local-notification/APPLocalNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		87263E5D480D4F2B9126B0E3 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +307,14 @@
 				45F6FF07EF914A5E9F5495A5 /* CDVFileTransfer.h */,
 				0729457BDA094404976B7DE8 /* CDVAccelerometer.m */,
 				F68C51CDBDED4B6D81883A77 /* CDVAccelerometer.h */,
+				A551A5A35583463E883DF720 /* CDVBackgroundFetch.m */,
+				0AD10EEECD6B44FDAD2C16EC /* CDVBackgroundFetch.h */,
+				38DA98A096C347C9B2BF4766 /* APPBackgroundMode.m */,
+				4DD28FEE7390434CB0F922D7 /* APPBackgroundMode.h */,
+				3CEBA62342F041B8971FAC72 /* APPLocalNotification.m */,
+				515ED06673C448E288E48038 /* APPLocalNotification.h */,
+				9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */,
+				87263E5D480D4F2B9126B0E3 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "CameraTest/Plugins";
@@ -500,6 +520,10 @@
 				B2B340F971B8466D8FAA0F3A /* CDVAssetLibraryFilesystem.m in Sources */,
 				299CBBE56F664020BF011BE3 /* CDVFileTransfer.m in Sources */,
 				19378F866B8F4CCEA5075045 /* CDVAccelerometer.m in Sources */,
+				D69CA2EF3D704186A1C9E18F /* CDVBackgroundFetch.m in Sources */,
+				DAF85940EA8341E09FA04685 /* APPBackgroundMode.m in Sources */,
+				AB83CFE0BC5E41E8861EDF00 /* APPLocalNotification.m in Sources */,
+				DA3496488EA542D688D16F35 /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

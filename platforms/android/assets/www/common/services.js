@@ -3,26 +3,15 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('AccountService', ['$state', 'Device', 'API', function($state, Device, API) {
   
   return {
+    // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
-      var user = Device.user();
-
-      // we assume user is from local storage
-      if (user.status === 'fresh') {
+      if (Device.user().verified === false) {
         $state.go('signupphone');
-      } else if (user.status === 'pending') {
-        // update user from server, then check again
-        API.getUser(Device.user()._id).then(function(json) {
-          if (user.status === 'confirmed') {
-            $state.go('menu.status');
-          } else {
-            $state.go('confirmaccount');
-          }
-        })
-      } else if (user.status === 'confirmed') {
+      } else {
         $state.go('menu.status');
       }
     }
-  }
+  };
 
 }])
 
@@ -56,6 +45,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('Contacts', ['$q', 'Device', function($q, Device) {
 
+  // utility: output standard '1113334488' format
   var concisePhone = function(phone) {
     // +1 (970) 618-7050  becomes  9706187050
     // remove '+1' '(' ')' '-' '.' ' '  LAST CHARACTER IS NOT AN EMPTY SPACE
@@ -65,6 +55,14 @@ angular.module('services', ['ngCordova', 'ionic'])
     // don't allow 1 at front of number
     if (phone.slice(0, 1) === '1') {
       phone = phone.slice(1);
+    }
+    return phone;
+  };
+
+  // utility: trim '+1' from a phone number
+  var phoneTrimCountryCode = function (phone) {
+    if (phone.slice(0,1) === '+') {
+      return phone.slice(2);
     }
     return phone;
   };
@@ -154,6 +152,9 @@ angular.module('services', ['ngCordova', 'ionic'])
     concisePhone: function(phone) {
       return concisePhone(phone);
     },
+    phoneTrimCountryCode: function(phone) {
+      return phoneTrimCountryCode(phone);
+    },
     contactsWithPhone: function(contacts) {
       if (Device.isPhone()) {
         return contactsWithPhone(contacts);
@@ -161,7 +162,7 @@ angular.module('services', ['ngCordova', 'ionic'])
         return computerContacts;
       }
     }
-  }
+  };
 
 }])
 
@@ -260,13 +261,19 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'http://localhost:9000';
-  var chrisAPIRoute = 'https://wwslgfhlcc.localtunnel.me';
-  var shawnAPIRoute = 'https://wwslgfhlcc.localtunnel.me';
-  var prodAPIRoute = 'http://tradingfaces.herokuapp.com';
+  var devAPIRoute = 'https://doingfine.localtunnel.me';
+  var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
-  var APIRoute = prodAPIRoute;
+  var APIRoute = devAPIRoute;
+
+  apiCall.newUser = function(userData) {
+    return $http({
+      url: APIRoute + '/api/mobileusers',
+      method: 'POST',
+      data: userData
+    });
+  };
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
@@ -276,14 +283,6 @@ angular.module('services', ['ngCordova', 'ionic'])
         id: userId,
         code: code
       }
-    });
-  };
-
-  apiCall.newUser = function(userData) {
-    return $http({
-      url: APIRoute + '/api/users',
-      method: 'POST',
-      data: userData
     });
   };
 

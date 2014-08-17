@@ -152,6 +152,34 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.transistorsoft.cordova.plugin.background.fetch/www/BackgroundFetch.js",
+        "id": "org.transistorsoft.cordova.plugin.background.fetch.BackgroundFetch",
+        "clobbers": [
+            "plugins.backgroundFetch"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.background-mode/www/background-mode.js",
+        "id": "de.appplant.cordova.plugin.background-mode.BackgroundMode",
+        "clobbers": [
+            "plugin.backgroundMode"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
+        "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
+        "clobbers": [
+            "plugin.notification.local"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
+        "id": "org.apache.cordova.statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -307,6 +335,10 @@ module.exports.metadata =
     "org.apache.cordova.contacts": "0.2.11",
     "org.apache.cordova.file-transfer": "0.4.4",
     "org.apache.cordova.device-motion": "0.2.9",
+    "org.transistorsoft.cordova.plugin.background.fetch": "2.0.2",
+    "de.appplant.cordova.plugin.background-mode": "0.5.0",
+    "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
+    "org.apache.cordova.statusbar": "0.1.7",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA
