@@ -260,13 +260,11 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'http://localhost:9000';
-  var chrisAPIRoute = 'https://wwslgfhlcc.localtunnel.me';
-  var shawnAPIRoute = 'https://wwslgfhlcc.localtunnel.me';
+  var devAPIRoute = ' https://doingfine.localtunnel.me';
   var prodAPIRoute = 'http://tradingfaces.herokuapp.com';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
-  var APIRoute = prodAPIRoute;
+  var APIRoute = devAPIRoute;
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
@@ -361,7 +359,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     var ft = new FileTransfer();
     console.log("Bottom of newPhoto");
     ft.upload(imageURI, endpoint, win, fail, options, true); // true = trustAllHosts
-    return q.promise
+    return q.promise;
   };
 
   apiCall.getThread = function(threadId) {
@@ -395,6 +393,13 @@ angular.module('services', ['ngCordova', 'ionic'])
   apiCall.recipientRead = function(threadId, read) {
     return $http({
       url: APIRoute + '/api/threads/' + threadId + '/recipient/read/' + read,
+      method: 'GET'
+    });
+  };
+
+  apiCall.getAllFriends = function(userId) {
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
       method: 'GET'
     });
   };
@@ -466,4 +471,4 @@ angular.module('services', ['ngCordova', 'ionic'])
   */  
 
   return apiCall;
-})
+});

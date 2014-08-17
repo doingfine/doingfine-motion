@@ -3,8 +3,16 @@ angular.module('doingfine.menu', [
 	'ionic'
 	])
 
-.controller('MenuController', function ($scope, $state, FriendsService, $rootScope) {
-	$scope.friends = FriendsService.all();
+.controller('MenuController', function ($scope, $state, FriendsService, $rootScope, Device, API) {
+  var currentUserId = Device.user()._id;
+  API.getAllFriends(currentUserId)
+    .success(function (data) {
+      $scope.friends = data;
+      console.log($scope.friends);
+    })
+    .error(function (err) {
+      console.log(err);
+    });
   $scope.getUserActivity = function (f) {
     $rootScope.selectedFriend = f;
     $state.go('menu.status', null, {reload: true});
