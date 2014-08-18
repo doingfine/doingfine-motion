@@ -161,11 +161,6 @@ angular.module('services', ['ngCordova', 'ionic'])
       }
     }
   };
-<<<<<<< HEAD
-
-}])
-=======
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 
 }])
 
@@ -216,16 +211,11 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-<<<<<<< HEAD
-  var devAPIRoute = 'https://doingfine.localtunnel.me';
-=======
   var devAPIRoute = 'https://dbqannksdb.localtunnel.me'; // https://doingfine.localtunnel.me
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
   var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
   var APIRoute = devAPIRoute;
-<<<<<<< HEAD
 
   apiCall.newUser = function(userData) {
     return $http({
@@ -236,54 +226,6 @@ angular.module('services', ['ngCordova', 'ionic'])
   };
 
   apiCall.confirmUser = function(userId, code) {
-    return $http({
-      url: APIRoute + '/api/users/confirm',
-      method: 'POST',
-      data: {
-        id: userId,
-        code: code
-      }
-    });
-  };
-
-  apiCall.getUser = function(userId) {
-    return $http({
-      url: APIRoute + '/api/users/' + userId,
-      method: 'GET'
-    });
-  };
-
-  apiCall.searchForUser = function(user) {
-    return $http({
-      url: APIRoute + '/api/users/find',
-      method: 'POST',
-      data: user
-    });
-  };
-
-  apiCall.searchForThread = function(user1, user2) {
-    return $http({
-      url: APIRoute + '/api/threads/find-thread',
-      method: 'POST',
-      data: {
-        participants: [user1, user2]
-      }
-    });
-  };
-
-  apiCall.newThread = function(participants) {
-=======
-
-  apiCall.newUser = function(userData) {
-    return $http({
-      url: APIRoute + '/api/mobileusers',
-      method: 'POST',
-      data: userData
-    });
-  };
-
-  apiCall.confirmUser = function(userId, code) {
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
     return $http({
       url: APIRoute + '/api/mobileusers/' + userId + '/verify',
       method: 'POST',
@@ -293,151 +235,5 @@ angular.module('services', ['ngCordova', 'ionic'])
     });
   };
 
-<<<<<<< HEAD
-  // Does not work for multipart forms.
-  apiCall.newPhoto = function(threadId, ownerId, imageURI, cb) {
-    // Uncomment and comment out below for testing in the browser
-    // return $http({
-    //   url: APIRoute + '/api/photos',
-    //   method: 'POST',
-    //   data: {
-    //     threadId: threadId,
-    //     owner: ownerId,
-    //     url: imageURI
-    //   }
-    // });
-    
-    var q = $q.defer();
-    console.log("New Photo");
-    var win = cb;
-    var win = function(data) {
-      q.resolve(data);
-    };
-    var fail = function(error) {
-      q.reject(error);
-    };
-
-    var options = new FileUploadOptions;
-    options.fileKey = 'photo';
-    options.fileName = imageURI.substr(imageURI.lastIndexOf('/')+1);
-    console.log('filename ', options.fileName);
-    options.mimeType = 'image/jpeg';
-    options.params = {
-      'owner': ownerId,
-      'threadId': threadId
-    };
-    options.chunkedMode = true;
-
-    var endpoint = encodeURI(APIRoute + '/api/photos/');
-
-    var ft = new FileTransfer();
-    console.log("Bottom of newPhoto");
-    ft.upload(imageURI, endpoint, win, fail, options, true); // true = trustAllHosts
-    return q.promise
-  };
-
-  apiCall.getThread = function(threadId) {
-    return $http({
-      url: APIRoute + '/api/threads/' + threadId,
-      method: 'GET'
-    });
-  };
-
-  apiCall.getThreadData = function(threadId) {
-    return $http({
-      url: APIRoute + '/api/threads/all/' + threadId,
-      method: 'GET'
-    });
-  };
-
-  apiCall.getAllThreadsData = function(threadId) {
-    return $http({
-      url: APIRoute + '/api/users/threads/' + threadId,
-      method: 'GET'
-    });
-  };
-
-  apiCall.creatorRead = function(threadId, read) {
-    return $http({
-      url: APIRoute + '/api/threads/' + threadId + '/creator/read/' + read,
-      method: 'GET'
-    });
-  };
-
-  apiCall.recipientRead = function(threadId, read) {
-    return $http({
-      url: APIRoute + '/api/threads/' + threadId + '/recipient/read/' + read,
-      method: 'GET'
-    });
-  };
-
-  /************************
-   *** SAMPLE API Calls ***
-   ************************
-    API.getAllUsers()
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log(error);
-      });
-
-    API.newThread([1112223334,1234567890])
-      .success(function(newThread) {
-        console.log(newThread);
-        var threadId = newThread.data._id;
-        var ownerId = newThread.data.participants[0];
-        // Remove this line when we have real photos to send.
-        Camera.getRandomPicture().then(function(image) {
-          API.newPhoto(threadId, ownerId, image)
-            .success(function(data) {
-              console.log(data);
-            })
-            .error(function(error) {
-              console.log(error);
-            });
-        })
-      })
-      .error(function(error) {
-        console.log('error');
-        console.log(error);
-      })
-
-    newPhoto only test.
-    API.newPhoto("53c741465a44899857fb64a8", "53c741465a44899857fb64a6")
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log(error);
-      })
-    
-    API.getThread('53c741465a44899857fb64a8')
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log(error);
-      });
-
-    API.getUser('53c741465a44899857fb64a6')
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log(error);
-      });
-
-    API.getAllThreadsData('53c7794489f357de7dbf6186')
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log(error);
-      });
-  */  
-
-=======
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
   return apiCall;
 });

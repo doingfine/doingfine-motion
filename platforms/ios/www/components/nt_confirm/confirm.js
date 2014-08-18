@@ -14,68 +14,16 @@ angular.module('doingfine.newthreadconfirm', [
   $scope.confirm = function() {
     // adding a friend during user create implies it is an invite
     $scope.selectedFriend.friends = [Device.user()._id];
-    $scope.selectedFriend.phone += '+1';
+    $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
     API.newUser($scope.selectedFriend).success(function(newUser) {
       console.log('FRIEND ADDED : ', JSON.stringify(newUser));
-      $state.go('status');
+      $state.go('menu.status');
     })
     .error(function(error) {
       console.log(error);
     });
   };
 
-<<<<<<< HEAD
-  var createNewThread = function() {
-    console.log("User ", JSON.stringify($scope.user));
-    console.log("Friend ", JSON.stringify($scope.selectedFriend));
-    API.newThread([$scope.user.phone, $scope.selectedFriend.phone])
-      // After creating new thread, create a photo that will be added to thread.
-      .success(function(newThread) {
-        var threadId = newThread.data._id;
-        var ownerId = newThread.data.participants[0];
-        createNewPhoto(threadId, ownerId);
-      })
-      .error(function(error) {
-        console.log(error);
-      })
-  }
-
-  // Creator parameter only used for existing threads. Used to determine unread status.
-  var createNewPhoto = function(threadId, userId, creator) {
-    console.log("Creating Photo");
-    console.log("threadID ", threadId);
-    console.log("userID ", userId);
-    API.newPhoto(threadId, userId, $scope.capturedImageURI)
-      .then(function(data) {
-        // If creator is defined mark the thread unread for appropriate party.
-        if (creator) {
-          if (userId === creator) {
-            API.recipientRead(threadId, false);
-          }
-          else {
-            API.creatorRead(threadId, false);
-          }
-        }
-        $state.go('menu.status');
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
-
-  var init = function() {
-    // Search database for the friend using their phone number.
-    API.searchForUser({phone: $scope.selectedFriend.phone})
-      .success(function(foundFriend) {
-        // If found replace $scope.selectedFriend with their user account info.
-        if (foundFriend) {
-          registeredFriend = true;
-          $scope.selectedFriend = foundFriend;
-        }
-      });
-  }
-  init();
-=======
 
 
 
@@ -130,6 +78,5 @@ angular.module('doingfine.newthreadconfirm', [
   //     });
   // };
   // init();
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 
 });

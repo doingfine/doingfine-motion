@@ -1,7 +1,7 @@
 angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('AccountService', ['$state', 'Device', 'API', function($state, Device, API) {
-  
+
   return {
     // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
@@ -84,7 +84,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     }
     return null;
   };
-  
+
   var contactsWithPhone = function(contacts) {
   // returns all contacts in an array with first, last, and phone
   // phone is mobile number formatted to 8880005555
@@ -168,7 +168,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('Camera', ['$q', 'Device', function($q, Device) {
   // ideally getPicture would check for device type and launch webcam or phone cam(future feature)
- 
+
   return {
     // opens photo view and returns a promise, promise resolves with a URI
     getPicture: function(options) {
@@ -188,17 +188,17 @@ angular.module('services', ['ngCordova', 'ionic'])
             destinationType: navigator.camera.DestinationType.FILE_URI,
               // DATA_URL : 0,      // Return image as base64-encoded string
               // FILE_URI : 1,      // Return image file URI as stored in memory
-              // NATIVE_URI : 2     // Return image native URI (e.g., assets-library:// on iOS 
+              // NATIVE_URI : 2     // Return image native URI (e.g., assets-library:// on iOS
             sourceType : navigator.camera.PictureSourceType.CAMERA
           };
         }
-        
+
         navigator.camera.getPicture(function(result) {
           q.resolve(result);
         }, function(err) {
           q.reject(err);
         }, options);
-        
+
         return q.promise;
       } else {
         // generates a random photo in browser
@@ -261,27 +261,11 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-<<<<<<< HEAD
-  var devAPIRoute = 'https://doingfine.localtunnel.me';
-  var prodAPIRoute = 'http://doinfine.azurewebsites.net';
-
-  // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
-  var APIRoute = devAPIRoute;
-
-  apiCall.newUser = function(userData) {
-    return $http({
-      url: APIRoute + '/api/mobileusers',
-      method: 'POST',
-      data: userData
-    });
-  };
-=======
   var devAPIRoute = ' https://doingfine.localtunnel.me';
   var prodAPIRoute = 'http://tradingfaces.herokuapp.com';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
   var APIRoute = devAPIRoute;
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
@@ -341,7 +325,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     //     url: imageURI
     //   }
     // });
-    
+
     var q = $q.defer();
     console.log("New Photo");
     var win = cb;
@@ -453,7 +437,7 @@ angular.module('services', ['ngCordova', 'ionic'])
       .error(function(error) {
         console.log(error);
       })
-    
+
     API.getThread('53c741465a44899857fb64a8')
       .success(function(data) {
         console.log(data);
@@ -477,7 +461,7 @@ angular.module('services', ['ngCordova', 'ionic'])
       .error(function(error) {
         console.log(error);
       });
-  */  
+  */
 
   return apiCall;
 });

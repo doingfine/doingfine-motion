@@ -103,7 +103,7 @@ angular.module('app', [
       url: '/thread/:threadId',
       templateUrl: 'components/thread/thread.html',
       controller: 'ThreadController'
-    });
+    })
 
     // accelerometer test
     .state('test', {
@@ -126,8 +126,7 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-<<<<<<< HEAD
-      { _id: '53c88bfa5591db000025b15f', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: false }
+      { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
     // // if no device data is available, we can assume we are in the browser
@@ -138,34 +137,13 @@ angular.module('app', [
     // }
     // // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     // else if (window.localStorage.getItem('deviceUser') === null) {
-    //   var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI' }; // TODO: get vfid
+    //   var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
     //   console.log("Device User: ", JSON.stringify(deviceUser));
-    //   window.localStorage.setItem('deviceUser', JSON.stringify(deviceUser));
+    //   Device.user(deviceUser);
     //   // Don't know why we need to do this here to work on phone
     //   // expect that accessing storage takes too long
     //   AccountService.authAndRoute();
     // }
-
-=======
-      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
-    ];
-
-    // if no device data is available, we can assume we are in the browser
-    if (ionic.Platform.device().uuid === undefined) {
-      // so we manually specify a deviceUser profile (simulation mode)
-      Device.user(simulationUsers[0]);
-      Device.setItem('type', 'internetdevice');
-    }
-    // otherwise if a user doesn't yet exist in the phone's local storage, we create one
-    else if (window.localStorage.getItem('deviceUser') === null) {
-      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
-      console.log("Device User: ", JSON.stringify(deviceUser));
-      Device.user(deviceUser);
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing storage takes too long
-      AccountService.authAndRoute();
-    }
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
     console.log("Platform Done Ready");
     $state.go('test');
   });

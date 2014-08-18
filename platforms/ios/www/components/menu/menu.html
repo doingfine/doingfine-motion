@@ -13,13 +13,8 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
-<<<<<<< HEAD
-        <ion-item ng-repeat="f in friends" nav-clear menu-close ui-sref="menu.status" class="item item-icon-left">
-          <i class="icon ion-ios7-person-outline"></i>
-=======
         <ion-item ng-repeat="f in friends" nav-clear menu-close ng-click="getUserActivity(f)" class="item item-icon-left">
           <i class="icon ion-ios7-person-outline" ></i>
->>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
           {{f.first}} {{f.last}}
         </ion-item>
 
