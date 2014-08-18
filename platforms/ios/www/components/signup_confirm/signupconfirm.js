@@ -13,8 +13,13 @@ angular.module('doingfine.signupconfirm', [
 				console.log('Success, Confirmation Code Validated ', JSON.stringify(response));
 				var user = response.data;
 				if (user.verified) {
+<<<<<<< HEAD
 					Device.user(user);
 					$state.go('menu');
+=======
+          Device.user(user);
+					$state.go('menu.status');
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 				} else {
 					$scope.invalidCode();
 				}

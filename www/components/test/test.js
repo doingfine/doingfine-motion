@@ -22,7 +22,9 @@ angular.module('doingfine.test', [
 
     watch.promise.then(
       function() {/* unused */},
-      function(err) {},
+      function(err) {
+				console.log('Error', err);
+			},
       function(acceleration) {
         console.log('Acceleration X: ' + acceleration.x + '\n' +
            'Acceleration Y: ' + acceleration.y + '\n' +

@@ -1,4 +1,4 @@
-<ion-view title="New Friend">
+<ion-view title="Challenge">
   <ion-nav-bar>
     <ion-nav-buttons side="right">
       <button class="button button-clear" ui-sref="newthreadselectfriend">Cancel</button>
@@ -9,13 +9,15 @@
 
     <div class="card">
       <div class="item item-text-wrap">
-        Add {{selectedFriend.first}} {{selectedFriend.last}} as a friend. You will be able to see their real-time motion and motion history.
+        Challenge your friend {{selectedFriend.first}} {{selectedFriend.last}} to mirror this face.
       </div>
     </div>
 
+    <img ng-src="{{capturedImageURI}}" style="width: 100%">
+
     <!-- someone please center this :) -->
     <button class="button button-large button-energized" ng-click="confirm()">
-       Add Friend
+      Challenge {{selectedFriend.first}}
     </button>
 
   </ion-content>

@@ -15,12 +15,10 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 }])
 
-.factory('ThreadsService', function() {
+.factory('FriendsService', function() {
   // Some fake testing data
-  var seedImgPath = 'img/seedFaces/'
-  var currentUser = {
-    id: 4, first: 'Dave', last: 'G-W', phone: '5552221111'
-  }
+  var seedImgPath = 'img/seedFaces/';
+  var currentUser = { id: 4, first: 'Dave', last: 'G-W', phone: '5552221111' };
   var threads = [
     { id: 0, first: 'Scruff', last: 'McGruff', new: true, photos: [seedImgPath+'1.jpg', seedImgPath+'9.jpg', seedImgPath+'5.jpg', seedImgPath+'10.jpg'] },
     { id: 1, first: 'G.I.', last: 'Joe', new: false, photos: [seedImgPath+'10.jpg', seedImgPath+'4.jpg', seedImgPath+'6.jpg', seedImgPath+'7.jpg'] },
@@ -35,12 +33,12 @@ angular.module('services', ['ngCordova', 'ionic'])
       return threads;
     },
     setSelected: function(thread) {
-      selectedThread = [currentUser, thread]
+      selectedThread = [currentUser, thread];
     },
     getSelected: function() {
       return selectedThread;
     }
-  }
+  };
 })
 
 .factory('Contacts', ['$q', 'Device', function($q, Device) {
@@ -163,55 +161,12 @@ angular.module('services', ['ngCordova', 'ionic'])
       }
     }
   };
+<<<<<<< HEAD
 
 }])
+=======
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 
-.factory('Camera', ['$q', 'Device', function($q, Device) {
-  // ideally getPicture would check for device type and launch webcam or phone cam(future feature)
- 
-  return {
-    // opens photo view and returns a promise, promise resolves with a URI
-    getPicture: function(options) {
-      if (Device.isPhone()) {
-        var q = $q.defer();
-        if (options === undefined) {
-          // cameraDirection: "1" for front-facing, "2" for user-facing
-          // destinationType: Camera.DestinationType.DATA_URL
-          options = {
-            cameraDirection: 1,
-            quality: 90, // 1-100
-            allowEdit : true, // necessary for Square aspect ratio
-            targetWidth: 640,
-            targetHeight: 640,
-            correctOrientation: 1,
-            saveToPhotoAlbum: false,
-            destinationType: navigator.camera.DestinationType.FILE_URI,
-              // DATA_URL : 0,      // Return image as base64-encoded string
-              // FILE_URI : 1,      // Return image file URI as stored in memory
-              // NATIVE_URI : 2     // Return image native URI (e.g., assets-library:// on iOS 
-            sourceType : navigator.camera.PictureSourceType.CAMERA
-          };
-        }
-        
-        navigator.camera.getPicture(function(result) {
-          q.resolve(result);
-        }, function(err) {
-          q.reject(err);
-        }, options);
-        
-        return q.promise;
-      } else {
-        // generates a random photo in browser
-        // for development purposes
-        var q = $q.defer();
-        var numImages = 26;
-        var directory = 'img/seedFaces/';
-        var index = Math.ceil(Math.random()*numImages);
-        q.resolve(directory+index+'.jpg');
-        return q.promise;
-      }
-    }
-  }
 }])
 
 // Custom service to make device information available at any time
@@ -244,7 +199,7 @@ angular.module('services', ['ngCordova', 'ionic'])
         return JSON.parse(window.localStorage.getItem('deviceUser'));
       }
     }
-  }
+  };
 })
 
 // Workaround attempt for sending multipart form data. Currently not used.
@@ -261,11 +216,16 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
+<<<<<<< HEAD
   var devAPIRoute = 'https://doingfine.localtunnel.me';
+=======
+  var devAPIRoute = 'https://dbqannksdb.localtunnel.me'; // https://doingfine.localtunnel.me
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
   var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
   var APIRoute = devAPIRoute;
+<<<<<<< HEAD
 
   apiCall.newUser = function(userData) {
     return $http({
@@ -312,15 +272,28 @@ angular.module('services', ['ngCordova', 'ionic'])
   };
 
   apiCall.newThread = function(participants) {
+=======
+
+  apiCall.newUser = function(userData) {
     return $http({
-      url: APIRoute + '/api/threads',
+      url: APIRoute + '/api/mobileusers',
+      method: 'POST',
+      data: userData
+    });
+  };
+
+  apiCall.confirmUser = function(userId, code) {
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/verify',
       method: 'POST',
       data: {
-        participants: participants // participants should be an array of phone numbers: Ex [1002003000, 1112223333]
+        code: JSON.stringify(code)
       }
     });
   };
 
+<<<<<<< HEAD
   // Does not work for multipart forms.
   apiCall.newPhoto = function(threadId, ownerId, imageURI, cb) {
     // Uncomment and comment out below for testing in the browser
@@ -464,5 +437,7 @@ angular.module('services', ['ngCordova', 'ionic'])
       });
   */  
 
+=======
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
   return apiCall;
-})
+});

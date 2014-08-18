@@ -13,8 +13,8 @@ angular.module('doingfine.signupconfirm', [
 				console.log('Success, Confirmation Code Validated ', JSON.stringify(response));
 				var user = response.data;
 				if (user.verified) {
-					Device.user(user);
-					$state.go('menu');
+          Device.user(user);
+					$state.go('menu.status');
 				} else {
 					$scope.invalidCode();
 				}

@@ -15,7 +15,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 
 }])
 
-.factory('ThreadsService', function() {
+.factory('FriendsService', function() {
   // Some fake testing data
   var seedImgPath = 'img/seedFaces/'
   var currentUser = {
@@ -261,6 +261,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
+<<<<<<< HEAD
   var devAPIRoute = 'https://doingfine.localtunnel.me';
   var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
@@ -274,6 +275,13 @@ angular.module('services', ['ngCordova', 'ionic'])
       data: userData
     });
   };
+=======
+  var devAPIRoute = ' https://doingfine.localtunnel.me';
+  var prodAPIRoute = 'http://tradingfaces.herokuapp.com';
+
+  // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
+  var APIRoute = devAPIRoute;
+>>>>>>> 7641ac23bc53b5029484fa1c7f1bffe0b9e95a88
 
   apiCall.confirmUser = function(userId, code) {
     return $http({
@@ -360,7 +368,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     var ft = new FileTransfer();
     console.log("Bottom of newPhoto");
     ft.upload(imageURI, endpoint, win, fail, options, true); // true = trustAllHosts
-    return q.promise
+    return q.promise;
   };
 
   apiCall.getThread = function(threadId) {
@@ -394,6 +402,13 @@ angular.module('services', ['ngCordova', 'ionic'])
   apiCall.recipientRead = function(threadId, read) {
     return $http({
       url: APIRoute + '/api/threads/' + threadId + '/recipient/read/' + read,
+      method: 'GET'
+    });
+  };
+
+  apiCall.getAllFriends = function(userId) {
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
       method: 'GET'
     });
   };
@@ -465,4 +480,4 @@ angular.module('services', ['ngCordova', 'ionic'])
   */  
 
   return apiCall;
-})
+});
