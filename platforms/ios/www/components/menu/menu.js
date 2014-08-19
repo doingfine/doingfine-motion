@@ -8,7 +8,6 @@ angular.module('doingfine.menu', [
   API.getAllFriends(currentUserId)
     .success(function (data) {
       $scope.friends = data;
-      console.log($scope.friends);
     })
     .error(function (err) {
       console.log(err);

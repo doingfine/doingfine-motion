@@ -211,7 +211,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'https://dbqannksdb.localtunnel.me'; // https://doingfine.localtunnel.me
+  var devAPIRoute = 'https://doingfine.localtunnel.me'; // https://doingfine.localtunnel.me
   var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
@@ -232,6 +232,22 @@ angular.module('services', ['ngCordova', 'ionic'])
       data: {
         code: JSON.stringify(code)
       }
+    });
+  };
+
+  apiCall.getAllFriends = function(userId) {
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
+      method: 'GET'
+    });
+  };
+
+  apiCall.addFriend = function (userId, friendId){
+    "use strict";
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
+      method: 'POST',
+      data: JSON.stringify({friends: [friendId]})
     });
   };
 
