@@ -19,7 +19,6 @@ angular.module('app', [
   'doingfine.newthreadconfirm',
   'doingfine.menu',
   'doingfine.status',
-  'doingfine.test',
   'doingfine.thread',
   'doingfine.confirmaccount'
   ])
@@ -104,13 +103,6 @@ angular.module('app', [
       url: '/thread/:threadId',
       templateUrl: 'components/thread/thread.html',
       controller: 'ThreadController'
-    })
-
-    // accelerometer test
-    .state('test', {
-      url: '/test/',
-      templateUrl: 'components/test/test.html',
-      controller: 'TestController'
     });
 
   // Default route
@@ -129,9 +121,6 @@ angular.module('app', [
     var simulationUsers = [
       { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
-
-
-    PedometerService.start();
 
     console.log(window.localStorage.getItem('deviceUser'));
 
