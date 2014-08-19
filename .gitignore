@@ -1,5 +1,5 @@
 node_modules/
 /server/config/local.env.js
-
+.idea
 
 .DS_Store

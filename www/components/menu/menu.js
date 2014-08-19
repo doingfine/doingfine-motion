@@ -7,8 +7,8 @@ angular.module('doingfine.menu', [
   var currentUserId = Device.user()._id;
   API.getAllFriends(currentUserId)
     .success(function (data) {
+      console.log("Friends: ", data);
       $scope.friends = data;
-      console.log($scope.friends);
     })
     .error(function (err) {
       console.log(err);
