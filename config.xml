@@ -25,4 +25,7 @@
     <feature name="LocalNotification">
         <param name="ios-package" value="APPLocalNotification" />
     </feature>
+    <feature name="PedometerCordova">
+        <param name="ios-package" value="PedometerCordova" />
+    </feature>
 </widget>

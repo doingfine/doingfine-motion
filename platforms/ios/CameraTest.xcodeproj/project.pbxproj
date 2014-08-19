@@ -57,6 +57,9 @@
 		DAF85940EA8341E09FA04685 /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA98A096C347C9B2BF4766 /* APPBackgroundMode.m */; };
 		AB83CFE0BC5E41E8861EDF00 /* APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEBA62342F041B8971FAC72 /* APPLocalNotification.m */; };
 		DA3496488EA542D688D16F35 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */; };
+		91C976F3D6364734AAF9733C /* SOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B640A50A7445E93336194 /* SOLocationManager.m */; };
+		821D63788F5343B2A26827AC /* SOMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2465F80F841A5BC7F6F13 /* SOMotionDetector.m */; };
+		A41ABA9D139F4902A8ED1581 /* PedometerCordova.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567CC02DA14A9CAA602E12 /* PedometerCordova.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +159,12 @@
 		515ED06673C448E288E48038 /* APPLocalNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPLocalNotification.h"; path = "de.appplant.cordova.plugin.local-notification/APPLocalNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		87263E5D480D4F2B9126B0E3 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		946B640A50A7445E93336194 /* SOLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SOLocationManager.m"; path = "fr.adfab.pedometercordova/SOLocationManager.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3FC2465F80F841A5BC7F6F13 /* SOMotionDetector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SOMotionDetector.m"; path = "fr.adfab.pedometercordova/SOMotionDetector.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		60567CC02DA14A9CAA602E12 /* PedometerCordova.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PedometerCordova.m"; path = "fr.adfab.pedometercordova/PedometerCordova.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C3C0731C1AA44AAE98EFA2D1 /* SOLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SOLocationManager.h"; path = "fr.adfab.pedometercordova/SOLocationManager.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E1F1FC9CD8AB40C4AAA528AC /* SOMotionDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SOMotionDetector.h"; path = "fr.adfab.pedometercordova/SOMotionDetector.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		08D2D7BEBBA84B158B86A1F9 /* PedometerCordova.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PedometerCordova.h"; path = "fr.adfab.pedometercordova/PedometerCordova.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +324,12 @@
 				515ED06673C448E288E48038 /* APPLocalNotification.h */,
 				9CBA02FA172C4F66934DA85D /* CDVStatusBar.m */,
 				87263E5D480D4F2B9126B0E3 /* CDVStatusBar.h */,
+				946B640A50A7445E93336194 /* SOLocationManager.m */,
+				3FC2465F80F841A5BC7F6F13 /* SOMotionDetector.m */,
+				60567CC02DA14A9CAA602E12 /* PedometerCordova.m */,
+				C3C0731C1AA44AAE98EFA2D1 /* SOLocationManager.h */,
+				E1F1FC9CD8AB40C4AAA528AC /* SOMotionDetector.h */,
+				08D2D7BEBBA84B158B86A1F9 /* PedometerCordova.h */,
 			);
 			name = Plugins;
 			path = "CameraTest/Plugins";
@@ -524,6 +539,9 @@
 				DAF85940EA8341E09FA04685 /* APPBackgroundMode.m in Sources */,
 				AB83CFE0BC5E41E8861EDF00 /* APPLocalNotification.m in Sources */,
 				DA3496488EA542D688D16F35 /* CDVStatusBar.m in Sources */,
+				91C976F3D6364734AAF9733C /* SOLocationManager.m in Sources */,
+				821D63788F5343B2A26827AC /* SOMotionDetector.m in Sources */,
+				A41ABA9D139F4902A8ED1581 /* PedometerCordova.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

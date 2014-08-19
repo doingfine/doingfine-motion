@@ -1,7 +1,7 @@
 angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('AccountService', ['$state', 'Device', 'API', function($state, Device, API) {
-  
+
   return {
     // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
@@ -82,7 +82,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     }
     return null;
   };
-  
+
   var contactsWithPhone = function(contacts) {
   // returns all contacts in an array with first, last, and phone
   // phone is mobile number formatted to 8880005555

@@ -72,4 +72,7 @@
         <param name="onload" value="true" />
         <param name="ios-package" onload="true" value="APPLocalNotification" />
     </feature>
+    <feature name="PedometerCordova">
+        <param name="ios-package" value="PedometerCordova" />
+    </feature>
 </widget>

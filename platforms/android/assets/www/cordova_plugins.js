@@ -295,7 +295,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "org.apache.cordova.camera": "0.2.9",
-    "org.apache.cordova.console": "0.2.8",
+    "org.apache.cordova.console": "0.2.10",
     "org.apache.cordova.contacts": "0.2.11",
     "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.file": "1.2.0",
@@ -304,7 +304,8 @@ module.exports.metadata =
     "org.transistorsoft.cordova.plugin.background.fetch": "2.0.2",
     "de.appplant.cordova.plugin.background-mode": "0.5.0",
     "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
-    "org.apache.cordova.statusbar": "0.1.7"
+    "org.apache.cordova.statusbar": "0.1.7",
+    "fr.adfab.pedometercordova": "1.O.O"
 }
 // BOTTOM OF METADATA
 });
