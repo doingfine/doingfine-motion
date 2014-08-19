@@ -14,13 +14,16 @@ angular.module('doingfine.newthreadconfirm', [
   $scope.confirm = function() {
     // adding a friend during user create implies it is an invite
     $scope.selectedFriend.friends = [Device.user()._id];
-    $scope.selectedFriend.phone += '+1';
+    $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
     API.newUser($scope.selectedFriend).success(function(newUser) {
-      console.log('FRIEND ADDED : ', JSON.stringify(newUser));
-      $state.go('status');
+      API.addFriend(Device.user()._id, newUser._id).success(function (data) {
+        $state.go('menu.status');
+      }).error(function (err) {
+        console.log("adding friend error: ", err);
+      });
     })
     .error(function(error) {
-      console.log(error);
+      console.log("new user error: ", error);
     });
   };
 

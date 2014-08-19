@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A35E34E7-BCDB-459B-9C0C-711A4B808FC2</string>
+	<string>AC78F844-2887-44AC-B031-297AD592E504</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CameraTest</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5CA843E5-F549-4CCC-8101-9FA3EE4926AA</key>
-		<string>https://github.com/nelsonriley/doingfine-motion.git</string>
+		<key>D8DB02A0-4083-4021-A0B3-A73BF0BC52FB</key>
+		<string>https://github.com/andrewzey/doingfine-motion.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>platforms/ios/CameraTest.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5CA843E5-F549-4CCC-8101-9FA3EE4926AA</key>
+		<key>D8DB02A0-4083-4021-A0B3-A73BF0BC52FB</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nelsonriley/doingfine-motion.git</string>
+	<string>https://github.com/andrewzey/doingfine-motion.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5CA843E5-F549-4CCC-8101-9FA3EE4926AA</string>
+	<string>D8DB02A0-4083-4021-A0B3-A73BF0BC52FB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5CA843E5-F549-4CCC-8101-9FA3EE4926AA</string>
+			<string>D8DB02A0-4083-4021-A0B3-A73BF0BC52FB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>doingfine-motion</string>
 		</dict>

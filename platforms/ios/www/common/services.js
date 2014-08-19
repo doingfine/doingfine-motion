@@ -1,7 +1,7 @@
 angular.module('services', ['ngCordova', 'ionic'])
 
 .factory('AccountService', ['$state', 'Device', 'API', function($state, Device, API) {
-  
+
   return {
     // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
@@ -82,7 +82,7 @@ angular.module('services', ['ngCordova', 'ionic'])
     }
     return null;
   };
-  
+
   var contactsWithPhone = function(contacts) {
   // returns all contacts in an array with first, last, and phone
   // phone is mobile number formatted to 8880005555
@@ -211,7 +211,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'https://dbqannksdb.localtunnel.me'; // https://doingfine.localtunnel.me
+  var devAPIRoute = 'https://doingfine.localtunnel.me'; // https://doingfine.localtunnel.me
   var prodAPIRoute = 'http://doinfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
@@ -232,6 +232,22 @@ angular.module('services', ['ngCordova', 'ionic'])
       data: {
         code: JSON.stringify(code)
       }
+    });
+  };
+
+  apiCall.getAllFriends = function(userId) {
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
+      method: 'GET'
+    });
+  };
+
+  apiCall.addFriend = function (userId, friendId){
+    "use strict";
+    return $http({
+      url: APIRoute + '/api/mobileusers/' + userId + '/friends',
+      method: 'POST',
+      data: JSON.stringify({friends: [friendId]})
     });
   };
 

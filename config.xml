@@ -16,4 +16,16 @@
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
+    <feature name="Accelerometer">
+      <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
+    <feature name="BackgroundFetch">
+      <param name="ios-package" value="CDVBackgroundFetch" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="ios-package" value="APPLocalNotification" />
+    </feature>
+    <feature name="PedometerCordova">
+        <param name="ios-package" value="PedometerCordova" />
+    </feature>
 </widget>

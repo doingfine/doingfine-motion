@@ -138,6 +138,55 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.device-motion/www/Acceleration.js",
+        "id": "org.apache.cordova.device-motion.Acceleration",
+        "clobbers": [
+            "Acceleration"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-motion/www/accelerometer.js",
+        "id": "org.apache.cordova.device-motion.accelerometer",
+        "clobbers": [
+            "navigator.accelerometer"
+        ]
+    },
+    {
+        "file": "plugins/org.transistorsoft.cordova.plugin.background.fetch/www/BackgroundFetch.js",
+        "id": "org.transistorsoft.cordova.plugin.background.fetch.BackgroundFetch",
+        "clobbers": [
+            "plugins.backgroundFetch"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.background-mode/www/background-mode.js",
+        "id": "de.appplant.cordova.plugin.background-mode.BackgroundMode",
+        "clobbers": [
+            "plugin.backgroundMode"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
+        "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
+        "clobbers": [
+            "plugin.notification.local"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
+        "id": "org.apache.cordova.statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
+        "file": "plugins/fr.adfab.pedometercordova/www/PedometerCordova.js",
+        "id": "fr.adfab.pedometercordova.PedometerCordova",
+        "clobbers": [
+            "window.PedometerCordova"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -287,11 +336,17 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.console": "0.2.8",
+    "org.apache.cordova.console": "0.2.10",
     "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.camera": "0.2.9",
     "org.apache.cordova.contacts": "0.2.11",
     "org.apache.cordova.file-transfer": "0.4.4",
+    "org.apache.cordova.device-motion": "0.2.9",
+    "org.transistorsoft.cordova.plugin.background.fetch": "2.0.2",
+    "de.appplant.cordova.plugin.background-mode": "0.5.0",
+    "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
+    "org.apache.cordova.statusbar": "0.1.7",
+    "fr.adfab.pedometercordova": "1.O.O",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

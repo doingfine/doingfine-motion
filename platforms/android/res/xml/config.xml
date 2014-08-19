@@ -21,6 +21,7 @@
     <feature name="FileTransfer">
         <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
+    <preference name="KeepRunning" value="true" />
     <name>CameraTest</name>
     <description>
         A mobile game for sharing funny faces.
@@ -36,5 +37,15 @@
     <preference name="DisallowOverscroll" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <feature name="Accelerometer">
+        <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+        <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
+    <feature name="BackgroundFetch">
+        <param name="ios-package" value="CDVBackgroundFetch" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
     </feature>
 </widget>

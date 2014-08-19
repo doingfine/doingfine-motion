@@ -6,9 +6,10 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', [
-  'ionic', 
-  'services', // break up later
+  'ionic',
   'ngCordova',
+  'services', // break up later
+  'service.pedometer',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
@@ -109,7 +110,7 @@ angular.module('app', [
 })
 
 // Run Time Operations (startup)
-.run(function($ionicPlatform, Device, AccountService) {
+.run(function($state, $ionicPlatform, Device, AccountService, PedometerService) {
   $ionicPlatform.ready(function() {
     console.log('Platform Ready');
 
@@ -118,8 +119,10 @@ angular.module('app', [
     Device.setItem('type', 'phone');
 
     var simulationUsers = [
-      { first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
+      { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
+
+    console.log(window.localStorage.getItem('deviceUser'));
 
     // if no device data is available, we can assume we are in the browser
     if (ionic.Platform.device().uuid === undefined) {
@@ -137,6 +140,6 @@ angular.module('app', [
       AccountService.authAndRoute();
     }
     console.log("Platform Done Ready");
-    
+    // $state.go('test');
   });
 });

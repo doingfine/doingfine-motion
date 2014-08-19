@@ -10,11 +10,11 @@ angular.module('doingfine.signupconfirm', [
 	$scope.finish = function() {
 		if($scope.user.confirmationCode.toString().length === 4) {
 			API.confirmUser(Device.user()._id, $scope.user.confirmationCode).then(function(response) {
-				console.log("Success Code Validated ", JSON.stringify(response));
+				console.log('Success, Confirmation Code Validated ', JSON.stringify(response));
 				var user = response.data;
-				if (user.status = 'confirmed') {
+				if (user.verified) {
 					Device.user(user);
-					$state.go('newthreadgetready');
+					$state.go('menu');
 				} else {
 					$scope.invalidCode();
 				}
@@ -22,7 +22,7 @@ angular.module('doingfine.signupconfirm', [
 				console.log('Error ', JSON.stringify(err));
 			});
 		} else {
-			console.log("form invalid");
+			console.log('form invalid');
 		}
 	};
 

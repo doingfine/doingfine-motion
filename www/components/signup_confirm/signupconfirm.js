@@ -3,7 +3,7 @@ angular.module('doingfine.signupconfirm', [
 	'services'
 	])
 
-.controller('SignUpConfirmController', function($scope, $state, $ionicPopup, Device, API) {
+.controller('SignUpConfirmController', function($scope, $state, $ionicPopup, Device, API, PedometerService) {
 
 	$scope.user = Device.user();
 
@@ -14,6 +14,7 @@ angular.module('doingfine.signupconfirm', [
 				var user = response.data;
 				if (user.verified) {
           Device.user(user);
+					PedometerService.start();
 					$state.go('menu.status');
 				} else {
 					$scope.invalidCode();
