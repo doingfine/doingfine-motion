@@ -16,8 +16,6 @@ angular.module('doingfine.newthreadconfirm', [
     $scope.selectedFriend.friends = [Device.user()._id];
     $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
     API.newUser($scope.selectedFriend).success(function(newUser) {
-      console.log("device id: ", Device.user()._id);
-      console.log("new user id: ", newUser._id);
       API.addFriend(Device.user()._id, newUser._id).success(function (data) {
         $state.go('menu.status');
       }).error(function (err) {
