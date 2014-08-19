@@ -19,18 +19,13 @@
 
 # org.apache.cordova.console
 
-This plugin is meant to ensure that console.log() is as useful as it can be.
-It adds additional function for iOS, Ubuntu, Windows Phone 8, and Windows 8. If
-you are happy with how console.log() works for you, then you probably
-don't need this plugin.
+這個外掛程式是為了確保該 console.log() 是一樣有用，它可以是。 它將添加附加功能的 iOS、 Ubuntu，Windows Phone 8 和 Windows 8。 如果你是快樂與 console.log() 是如何為你工作，那麼可能不需要這個外掛程式。
 
-## Installation
+## 安裝
 
     cordova plugin add org.apache.cordova.console
+    
 
-### Android Quirks
+### Android 的怪癖
 
-On some platforms other than Android, console.log() will act on multiple
-arguments, such as console.log("1", "2", "3"). However, Android will act only
-on the first argument. Subsequent arguments to console.log() will be ignored.
-This plugin is not the cause of that, it is a limitation of Android itself.
+在一些非 Android 平臺上，console.log() 將作用於多個參數，如 console.log ("1"、"2"、"3"）。 然而，Android 將僅在第一個參數上採取行動。 對 console.log() 的後續參數將被忽略。 這個外掛程式不是的原因，，它是安卓系統本身的限制。

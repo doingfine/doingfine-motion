@@ -19,18 +19,13 @@
 
 # org.apache.cordova.console
 
-This plugin is meant to ensure that console.log() is as useful as it can be.
-It adds additional function for iOS, Ubuntu, Windows Phone 8, and Windows 8. If
-you are happy with how console.log() works for you, then you probably
-don't need this plugin.
+Ten plugin jest przeznaczona do zapewnienia, że console.log() jest tak przydatne, jak to może być. To dodaje dodatkową funkcję dla iOS, Ubuntu, Windows Phone 8 i Windows 8. Jeśli jesteś zadowolony z jak console.log() pracuje dla Ciebie, wtedy prawdopodobnie nie potrzebują tej wtyczki.
 
-## Installation
+## Instalacji
 
     cordova plugin add org.apache.cordova.console
+    
 
-### Android Quirks
+### Android dziwactwa
 
-On some platforms other than Android, console.log() will act on multiple
-arguments, such as console.log("1", "2", "3"). However, Android will act only
-on the first argument. Subsequent arguments to console.log() will be ignored.
-This plugin is not the cause of that, it is a limitation of Android itself.
+Na niektórych platformach innych niż Android console.log() będzie działać na wielu argumentów, takich jak console.log ("1", "2", "3"). Jednak Android będzie działać tylko na pierwszy argument. Kolejne argumenty do console.log() będą ignorowane. Ten plugin nie jest przyczyną, że, jest to ograniczenie Androida, sam.
