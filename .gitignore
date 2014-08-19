@@ -1,5 +1,8 @@
 node_modules/
 /server/config/local.env.js
+.idea
 .idea/
+.idea/workspace.xml
+
 
 .DS_Store
