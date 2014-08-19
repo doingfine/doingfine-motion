@@ -16,11 +16,16 @@ angular.module('doingfine.newthreadconfirm', [
     $scope.selectedFriend.friends = [Device.user()._id];
     $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
     API.newUser($scope.selectedFriend).success(function(newUser) {
-      console.log('FRIEND ADDED : ', JSON.stringify(newUser));
-      $state.go('menu.status');
+      console.log("device id: ", Device.user()._id);
+      console.log("new user id: ", newUser._id);
+      API.addFriend(Device.user()._id, newUser._id).success(function (data) {
+        $state.go('menu.status');
+      }).error(function (err) {
+        console.log("adding friend error: ", err);
+      });
     })
     .error(function(error) {
-      console.log(error);
+      console.log("new user error: ", error);
     });
   };
 
