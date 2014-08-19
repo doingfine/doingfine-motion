@@ -180,6 +180,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/fr.adfab.pedometercordova/www/PedometerCordova.js",
+        "id": "fr.adfab.pedometercordova.PedometerCordova",
+        "clobbers": [
+            "window.PedometerCordova"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -329,7 +336,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.console": "0.2.8",
+    "org.apache.cordova.console": "0.2.10",
     "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.camera": "0.2.9",
     "org.apache.cordova.contacts": "0.2.11",
@@ -339,6 +346,7 @@ module.exports.metadata =
     "de.appplant.cordova.plugin.background-mode": "0.5.0",
     "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
     "org.apache.cordova.statusbar": "0.1.7",
+    "fr.adfab.pedometercordova": "1.O.O",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

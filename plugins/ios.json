@@ -17,6 +17,10 @@
                         {
                             "xml": "false",
                             "count": 1
+                        },
+                        {
+                            "xml": "true",
+                            "count": 1
                         }
                     ],
                     "CoreGraphics.framework": [
@@ -52,6 +56,10 @@
                     "CoreMotion.framework": [
                         {
                             "xml": "false",
+                            "count": 1
+                        },
+                        {
+                            "xml": "true",
                             "count": 1
                         }
                     ]
@@ -115,6 +123,10 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PedometerCordova\"><param name=\"ios-package\" value=\"PedometerCordova\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -170,6 +182,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "fr.adfab.pedometercordova": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },
