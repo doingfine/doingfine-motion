@@ -142,10 +142,6 @@ angular.module('app', [
       AccountService.authAndRoute();
     }
     console.log("Platform Done Ready");
-<<<<<<< Updated upstream
-    // $state.go('test');
-=======
-
->>>>>>> Stashed changes
+    PedometerService.start();
   });
 });

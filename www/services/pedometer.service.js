@@ -1,4 +1,4 @@
-angular.module('service.pedometer', [])
+angular.module('service.pedometer', ['service.firebase'])
 
 .factory('PedometerService', ['FirebaseService',
   function(FirebaseService) {
