@@ -8,8 +8,10 @@
 angular.module('app', [
   'ionic',
   'ngCordova',
+  'firebase',
   'services', // break up later
   'service.pedometer',
+  'service.firebase',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
@@ -140,6 +142,10 @@ angular.module('app', [
       AccountService.authAndRoute();
     }
     console.log("Platform Done Ready");
+<<<<<<< Updated upstream
     // $state.go('test');
+=======
+
+>>>>>>> Stashed changes
   });
 });

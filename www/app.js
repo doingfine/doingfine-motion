@@ -11,6 +11,7 @@ angular.module('app', [
   'firebase',
   'services', // break up later
   'service.pedometer',
+  'service.firebase',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
