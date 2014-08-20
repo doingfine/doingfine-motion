@@ -14,22 +14,43 @@ angular.module('directive.d3pedometer', ['service.d3'])
       //we don't want to overwrite our directive declaration
       //in the HTML mark-up
       replace: false,
-      //our data source would be an array
-      //passed thru chart-data attribute
-      scope: {data: '=chartData'},
+      scope: {data: '=motionData'},
       link: function (scope, element, attrs) {
 
-        scope.$watch('data', function(newData, oldData) {
-          console.log("WATCHING: ", newData, oldData);
-          render();
+
+        var el = d3Service.select(element[0]);
+  
+        var width = 640;
+        var height = 640;
+        var layer = 25;
+        var interval = 1000;
+        var svg;
+
+        var setup = function() {
+          el.selectAll('svg').remove();
+          svg = el.append('svg')
+            .attr('width', height)
+            .attr('height', width);
+        };
+        setup();
+
+        var circle = svg.append('circle')
+          .attr('cx', width / 2)
+          .attr('cy', height / 2)
+          .attr('r', layer)
+          .attr('fill', 'blue');
+
+        var pulse = function (r) {
+          circle
+            .transition(interval * 2).ease('linear') // elastic
+            .attr('r', layer + r * layer);
+        };
+
+        scope.$watch('data', function(newData) {
+          console.log("WATCHING: ", newData);
+          pulse(newData);
         }, true);
-        //in D3, any selection[0] contains the group
-        //selection[0][0] is the DOM node
-        //but we won't need that this time
-        var chart = d3Service.select(element[0]);
-        //to our original directive markup bars-chart
-        //we add a div with out chart stling and bind each
-        //data entry to the chart
+
         var render = function() {
           chart.selectAll('div').remove();
           chart.append('div').attr('class', 'chart')
@@ -39,7 +60,7 @@ angular.module('directive.d3pedometer', ['service.d3'])
             .style('width', function(d) { return d + "%"; })
             .text(function(d) { return d + '%'; });
         };
-        render();
+
       }
     };
     return directiveDefinitionObject;

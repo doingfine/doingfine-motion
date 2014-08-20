@@ -8,16 +8,10 @@ angular.module('doingfine.status', [
 .controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service) {
   $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
-  // flip flop demo data to test binding D3 to scope
-  var a = [10,20,30,40,60, 80, 20, 50];
-  var b = [40,30,30,90,60, 40, 20, 20];
-  $scope.demoData = a;
+  // 'pulse' random km/h data every second
+  $scope.motionData = 0;
   $interval(function() {
-    if ($scope.demoData[0] === 10) {
-      $scope.demoData = b;
-    } else {
-      $scope.demoData = a;
-    }
+    $scope.motionData = Math.floor(Math.random() * 12);
   }, 1000);
 
   $scope.hasFriends = true;
