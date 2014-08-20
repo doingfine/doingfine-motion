@@ -20,6 +20,7 @@ angular.module('doingfine.signupconfirm', [
 					$scope.invalidCode();
 				}
 			}).catch(function(err) {
+        $scope.invalidCode();
 				console.log('Error ', JSON.stringify(err));
 			});
 		} else {
@@ -28,12 +29,13 @@ angular.module('doingfine.signupconfirm', [
 	};
 
 	$scope.invalidCode = function() {
-   $ionicPopup.alert({
-     title: 'Sorry',
-     template: 'That code did not match the code we sent you.'
-   }).then(function(res) {
-     console.log('Try Again');
-   });
- };
+    var alertPopup = $ionicPopup.alert({
+      title: 'Invalid',
+      template: 'Sorry you have entered an invalid registration code. Please try again.'
+    });
+    alertPopup.then(function(res) {
+      console.log('Try Again');
+    });
+  };
 
 });
