@@ -15,7 +15,7 @@ angular.module('doingfine.newthreadconfirm', [
     var friends = Device.user().friends;
     // adding a friend during user create implies it is an invite
     $scope.selectedFriend.friends = [Device.user()._id];
-    $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
+    $scope.selectedFriend.phone = $scope.selectedFriend.phone;
 
     API.newUser($scope.selectedFriend).success(function(newUser) {
       API.addFriend(Device.user()._id, newUser._id).success(function (data) {
