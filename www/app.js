@@ -8,6 +8,7 @@
 angular.module('app', [
   'ionic',
   'ngCordova',
+  'firebase',
   'services', // break up later
   'service.pedometer',
   'doingfine.startup',
@@ -140,6 +141,10 @@ angular.module('app', [
       AccountService.authAndRoute();
     }
     console.log("Platform Done Ready");
+<<<<<<< Updated upstream
     // $state.go('test');
+=======
+
+>>>>>>> Stashed changes
   });
 });

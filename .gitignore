@@ -1,8 +1,8 @@
 node_modules/
-/server/config/local.env.js
+server/config/local.env.js
+www/lib/bower_components
 .idea
 .idea/
 .idea/workspace.xml
-
 
 .DS_Store
