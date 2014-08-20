@@ -1,18 +1,10 @@
 angular.module('directive.d3pedometer', ['service.d3'])
-  //camel cased directive name
-  //in your HTML, this will be named as bars-chart
+
   .directive('d3Pedometer', function ($window, d3Service) {
-    //explicitly creating a directive definition variable
-    //this may look verbose but is good for clarification purposes
-    //in real life you'd want to simply return the object {...}
-    var directiveDefinitionObject = {
-      //We restrict its use to an element
-      //as usually  <bars-chart> is semantically
-      //more understandable
-      restrict: 'E',
-      //this is important,
-      //we don't want to overwrite our directive declaration
-      //in the HTML mark-up
+
+    return {
+
+      restrict: 'E', // use as element d3-pedometer
       replace: false,
       scope: {data: '=motionData'},
       link: function (scope, element, attrs) {
@@ -36,34 +28,64 @@ angular.module('directive.d3pedometer', ['service.d3'])
 
         var circles = [];
 
-        var AnimatedCircle = function(interval, rest, layer, color, center) {
-          this.interval = interval * 1000; // seconds
+        var AnimatedCircle = function(interval, rest, layer, color, opacity, center) {
+          this.interval = interval; // seconds
           this.rest = rest;
           this.layer = layer;
           this.color = color;
+          this.opacity = opacity;
           this.center = center;
+          this.data = [];
+          this.currAvg = 1;
         };
 
         AnimatedCircle.prototype.insert = function (svg) {
           this.el = svg.append('circle')
+            .attr('id', 'circle' + this.interval)
             .attr('cx', this.center.x)
             .attr('cy', this.center.y)
             .attr('r', this.radius)
-            .attr('fill', this.color);
+            .attr('fill', this.color)
+            .attr('fill-opacity', this.opacity);
         };
 
         AnimatedCircle.prototype.pulse = function (magnitude) {
-          this.el.transition().duration(this.interval * 0.66).ease('linear') // grow to new value
-            .attr('r', this.rest + magnitude * this.layer)
-            .transition().duration(this.interval * 0.4).ease('linear') // collapse to 'resting' value
-            .attr('r', this.rest)
-            .transition().duration(this.interval * 0.66).ease('linear') // breath
-            .attr('r', this.rest / 2);
+          this.data.push(magnitude);
+          if (this.data.length % this.interval === 0) {
+
+            // update averages
+            var sum = 0;
+            for (var i = 0; i < this.data.length; i++) {
+              sum += this.data[i];
+            }
+            this.prevAvg = this.currAvg;
+            this.currAvg = sum / this.data.length;
+            this.data = [];
+
+            // update animation
+            var interval = this.interval * 1000;
+            this.el.transition().duration(interval * 0.66).ease('linear') // grow to new value
+              .attr('r', this.rest + magnitude * this.layer)
+              .transition().duration(interval * 0.4).ease('linear') // collapse to 'resting' value
+              .attr('r', this.rest)
+              .transition().duration(interval * 0.66).ease('linear') // breath
+              .attr('r', this.rest / 2);
+          }
         };
 
-        var circle1 = new AnimatedCircle (1, layer, layer, 'green', center);
-        circle1.insert(svg);
-        circles.push(circle1);
+        makeConcentricCircles = function (count, rest, layer, color, center, svgCanvas) {
+          var circles = [];
+          var opacity = 1 / count;
+          var circle;
+          var timeStrech = 1;
+          for (var i = 0; i < count; i++) {
+            circle = new AnimatedCircle (i * timeStrech + 1, rest, layer, color, opacity, center);
+            circle.insert(svgCanvas);
+            circles.push(circle);
+          }
+          return circles;
+        };
+        circles = makeConcentricCircles(10, layer, layer, 'rgb(13, 215, 247)', center, svg);
 
         scope.$watch('data', function(newData) {
           console.log("WATCHING: ", newData, new Date().toString());
@@ -72,17 +94,6 @@ angular.module('directive.d3pedometer', ['service.d3'])
           }
         }, true);
 
-        var render = function() {
-          chart.selectAll('div').remove();
-          chart.append('div').attr('class', 'chart')
-            .selectAll('div')
-            .data(scope.data).enter().append("div")
-            .transition(100).ease('elastic')
-            .style('width', function(d) { return d + "%"; })
-            .text(function(d) { return d + '%'; });
-        };
-
       }
     };
-    return directiveDefinitionObject;
    });
