@@ -16,15 +16,15 @@ angular.module('directive.d3pedometer', ['service.d3'])
       replace: false,
       scope: {data: '=motionData'},
       link: function (scope, element, attrs) {
-
-
-        var el = d3Service.select(element[0]);
   
         var width = 640;
         var height = 640;
+        var center = { x: width / 2, y: width / 2};
         var layer = 25;
         var interval = 1000;
         var svg;
+
+        var el = d3Service.select(element[0]);
 
         var setup = function() {
           el.selectAll('svg').remove();
@@ -34,25 +34,42 @@ angular.module('directive.d3pedometer', ['service.d3'])
         };
         setup();
 
-        var circle = svg.append('circle')
-          .attr('cx', width / 2)
-          .attr('cy', height / 2)
-          .attr('r', layer)
-          .attr('fill', 'blue');
+        var circles = [];
 
-        var pulse = function (r) {
-          circle
-            .transition().duration(interval * 0.66).ease('linear')
-            .attr('r', layer + r * layer)
-            .transition().duration(interval * 0.4).ease('linear')
-            .attr('r', layer)
-            .transition().duration(interval * 0.66).ease('linear')
-            .attr('r', layer / 2);
+        var AnimatedCircle = function(interval, rest, layer, color, center) {
+          this.interval = interval * 1000; // seconds
+          this.rest = rest;
+          this.layer = layer;
+          this.color = color;
+          this.center = center;
         };
+
+        AnimatedCircle.prototype.insert = function (svg) {
+          this.el = svg.append('circle')
+            .attr('cx', this.center.x)
+            .attr('cy', this.center.y)
+            .attr('r', this.radius)
+            .attr('fill', this.color);
+        };
+
+        AnimatedCircle.prototype.pulse = function (magnitude) {
+          this.el.transition().duration(this.interval * 0.66).ease('linear') // grow to new value
+            .attr('r', this.rest + magnitude * this.layer)
+            .transition().duration(this.interval * 0.4).ease('linear') // collapse to 'resting' value
+            .attr('r', this.rest)
+            .transition().duration(this.interval * 0.66).ease('linear') // breath
+            .attr('r', this.rest / 2);
+        };
+
+        var circle1 = new AnimatedCircle (1, layer, layer, 'green', center);
+        circle1.insert(svg);
+        circles.push(circle1);
 
         scope.$watch('data', function(newData) {
           console.log("WATCHING: ", newData, new Date().toString());
-          pulse(newData);
+          for (var i = 0; i < circles.length; i++) {
+            circles[i].pulse(newData);
+          }
         }, true);
 
         var render = function() {
