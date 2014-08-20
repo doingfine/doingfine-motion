@@ -11,6 +11,7 @@ angular.module('app', [
   'services', // break up later
   'service.pedometer',
   'service.d3',
+  'directive.d3pedometer',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',

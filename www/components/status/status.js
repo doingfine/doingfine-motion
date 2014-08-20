@@ -8,6 +8,10 @@ angular.module('doingfine.status', [
 .controller('StatusController', function($scope, $rootScope, Device, d3Service) {
   $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
+  $scope.demoData = [10,20,30,40,60, 80, 20, 50];
+
+  $scope.d3Service = d3Service;
+  
   $scope.hasFriends = true;
   if (Device.user().friends.length === 0) {
    $scope.hasFriends = false;
