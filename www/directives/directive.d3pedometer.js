@@ -42,12 +42,16 @@ angular.module('directive.d3pedometer', ['service.d3'])
 
         var pulse = function (r) {
           circle
-            .transition(interval * 2).ease('linear') // elastic
-            .attr('r', layer + r * layer);
+            .transition().duration(interval * 0.66).ease('linear')
+            .attr('r', layer + r * layer)
+            .transition().duration(interval * 0.4).ease('linear')
+            .attr('r', layer)
+            .transition().duration(interval * 0.66).ease('linear')
+            .attr('r', layer / 2);
         };
 
         scope.$watch('data', function(newData) {
-          console.log("WATCHING: ", newData);
+          console.log("WATCHING: ", newData, new Date().toString());
           pulse(newData);
         }, true);
 
