@@ -10,6 +10,7 @@ angular.module('app', [
   'ngCordova',
   'services', // break up later
   'service.pedometer',
+  'service.d3',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',

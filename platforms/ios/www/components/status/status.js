@@ -1,10 +1,11 @@
 'use strict';
 angular.module('doingfine.status', [
 	'ionic',
-	'services'
+	'services',
+  'service.d3'
 	])
 
-.controller('StatusController', function($scope, $rootScope, Device) {
+.controller('StatusController', function($scope, $rootScope, Device, d3Service) {
   $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
   $scope.hasFriends = true;
@@ -22,5 +23,7 @@ angular.module('doingfine.status', [
       $scope.safeModeIcon = onIcon;
     }
   };
+
+
 
 });
