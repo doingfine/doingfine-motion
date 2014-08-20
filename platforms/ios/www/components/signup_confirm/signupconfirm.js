@@ -14,7 +14,14 @@ angular.module('doingfine.signupconfirm', [
 				var user = response.data;
 				if (user.verified) {
           Device.user(user);
-					PedometerService.start();
+
+					//Create New Firebase user with mobile user ID
+					FirebaseService.createUser(Device.user()._id)
+					.then(function(){
+						// PedometerService.start();
+						console.log('Successfully created Firebase User');
+					});
+
 					$state.go('menu.status');
 				} else {
 					$scope.invalidCode();
