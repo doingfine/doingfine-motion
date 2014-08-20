@@ -7,14 +7,16 @@ angular.module('doingfine.newthreadconfirm', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
-.controller('NTConfirmController', function($scope, $state, $rootScope, API, Device) {
+.controller('NTConfirmController', function($scope, $state,$ionicPopup, $rootScope, API, Device) {
 
   $scope.selectedFriend = $rootScope.selectedFriend;
 
   $scope.confirm = function() {
+    var friends = Device.user().friends;
     // adding a friend during user create implies it is an invite
     $scope.selectedFriend.friends = [Device.user()._id];
-    $scope.selectedFriend.phone = '+1' + $scope.selectedFriend.phone;
+    $scope.selectedFriend.phone = $scope.selectedFriend.phone;
+
     API.newUser($scope.selectedFriend).success(function(newUser) {
       API.addFriend(Device.user()._id, newUser._id).success(function (data) {
         $state.go('menu.status');
@@ -23,7 +25,19 @@ angular.module('doingfine.newthreadconfirm', [
       });
     })
     .error(function(error) {
-      console.log("new user error: ", error);
+      console.log('HERE NOW');
+      $scope.friendAlreadyInvited();
+    });
+  };
+
+  $scope.friendAlreadyInvited = function() {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Friend Invite',
+      template: $scope.selectedFriend.first + ' has already been invited.'
+    });
+    alertPopup.then(function(res) {
+      console.log('Friend Already Invited');
+      $state.go('newthreadselectfriend');
     });
   };
 
