@@ -112,7 +112,7 @@ angular.module('app', [
 })
 
 // Run Time Operations (startup)
-.run(function($state, $ionicPlatform, Device, AccountService, PedometerService) {
+.run(function($state, $ionicPlatform, Device, AccountService, PedometerService, FirebaseService) {
   $ionicPlatform.ready(function() {
     console.log('Platform Ready');
 
@@ -120,28 +120,29 @@ angular.module('app', [
     Device.set(ionic.Platform.device());
     Device.setItem('type', 'phone');
 
-    var simulationUsers = [
-      { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
-    ];
-
-    console.log(window.localStorage.getItem('deviceUser'));
-
-    // if no device data is available, we can assume we are in the browser
-    if (ionic.Platform.device().uuid === undefined) {
-      // so we manually specify a deviceUser profile (simulation mode)
-      Device.user(simulationUsers[0]);
-      Device.setItem('type', 'internetdevice');
-    }
-    // otherwise if a user doesn't yet exist in the phone's local storage, we create one
-    else if (window.localStorage.getItem('deviceUser') === null) {
-      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
-      console.log("Device User: ", JSON.stringify(deviceUser));
-      Device.user(deviceUser);
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing storage takes too long
-      AccountService.authAndRoute();
-    }
+    // var simulationUsers = [
+    //   { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
+    // ];
+    //
+    // console.log(window.localStorage.getItem('deviceUser'));
+    //
+    // // if no device data is available, we can assume we are in the browser
+    // if (ionic.Platform.device().uuid === undefined) {
+    //   // so we manually specify a deviceUser profile (simulation mode)
+    //   Device.user(simulationUsers[0]);
+    //   Device.setItem('type', 'internetdevice');
+    // }
+    // // otherwise if a user doesn't yet exist in the phone's local storage, we create one
+    // else if (window.localStorage.getItem('deviceUser') === null) {
+    //   var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
+    //   console.log("Device User: ", JSON.stringify(deviceUser));
+    //   Device.user(deviceUser);
+    //   // Don't know why we need to do this here to work on phone
+    //   // expect that accessing storage takes too long
+    //   AccountService.authAndRoute();
+    // }
     console.log("Platform Done Ready");
     PedometerService.start();
+    //FirebaseService.push({test:'no unique id'});
   });
 });
