@@ -131,11 +131,14 @@ angular.module('app', [
     // for testing purposes to short-circuit sign-in flow
     var skipLogin = true;
     // if no device data is available, we can assume we are in the browser
-    if (ionic.Platform.device().uuid === undefined || skipLogin) {
+    if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
       // so we manually specify a deviceUser profile (simulation mode)
       Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
+      // Don't know why we need to do this here to work on phone
+      // expect that accessing local storage is OBVIOUSLY asynchronous
+      AccountService.authAndRoute();
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
@@ -143,7 +146,7 @@ angular.module('app', [
       console.log("Device User: ", JSON.stringify(deviceUser));
       Device.user(deviceUser);
       // Don't know why we need to do this here to work on phone
-      // expect that accessing storage takes too long
+      // expect that accessing local storage is OBVIOUSLY asynchronous
       AccountService.authAndRoute();
     }
 
