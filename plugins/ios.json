@@ -62,6 +62,12 @@
                             "xml": "true",
                             "count": 1
                         }
+                    ],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -127,6 +133,10 @@
                         {
                             "xml": "<feature name=\"PedometerCordova\"><param name=\"ios-package\" value=\"PedometerCordova\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AppleAdvertising\"><param name=\"ios-package\" value=\"AppleAdvertising\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -185,6 +195,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "fr.adfab.pedometercordova": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "com.aquto.cordova.AppleAdvertising": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },
