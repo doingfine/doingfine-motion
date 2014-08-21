@@ -3,7 +3,7 @@ angular.module('doingfine.signupconfirm', [
 	'services'
 	])
 
-.controller('SignUpConfirmController', function($scope, $state, $ionicPopup, Device, API, PedometerService) {
+.controller('SignUpConfirmController', function($scope, $state, $ionicPopup, Device, API, PedometerService, FirebaseService) {
 
 	$scope.user = Device.user();
 
@@ -14,7 +14,15 @@ angular.module('doingfine.signupconfirm', [
 				var user = response.data;
 				if (user.verified) {
           Device.user(user);
-					PedometerService.start();
+
+					console.log(Device.user()._id);
+					//Create New Firebase user with mobile user ID
+					FirebaseService.createUser(Device.user()._id)
+					.then(function(){
+						// PedometerService.start()
+						console.log('Successfully created Firebase User');
+					});
+
 					$state.go('menu.status');
 				} else {
 					$scope.invalidCode();

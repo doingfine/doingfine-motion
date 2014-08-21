@@ -1,0 +1,20 @@
+{
+  "name": "doingfine-motion",
+  "version": "0.0.0",
+  "homepage": "https://github.com/doingfine/doingfine-motion",
+  "authors": [
+    "Andrew Zey <andrew@andrewzey.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~1.0.19",
+    "angularfire": "~0.8.0"
+  }
+}
