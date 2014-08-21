@@ -25,12 +25,16 @@ angular.module('directive.d3stepschartoneday', ['service.d3'])
 
         y.domain([d3.max(data, function(d) { return d; }), 0]); // orientation is top to bottom
         x.domain([0, data.length - 1]); // orientation is left to right
-
-        // A line generator
+       
+        // Line generators
         var line = d3.svg.line()
           .interpolate('monotone')
           .x(function(d, i) { return x(i); })
           .y(function(d) { return y(d); });
+        var flatLine = d3.svg.line()
+          .interpolate('monotone')
+          .x(function(d, i) { return x(i); })
+          .y(height - padding);
 
         var setup = function() {
           el.selectAll('svg').remove();
@@ -41,9 +45,15 @@ angular.module('directive.d3stepschartoneday', ['service.d3'])
         setup();
 
         // draw line
-        svg.append("path")
-          .attr("class", "line")
-          .attr("d", line(data));
+        svg.append('path')
+          .attr('class', 'line')
+          .attr('d', flatLine(data));
+
+        // update line
+        d3.select('.line')
+          .transition()
+          .duration(3000)
+          .attr('d', line(data));
 
       }
     };
