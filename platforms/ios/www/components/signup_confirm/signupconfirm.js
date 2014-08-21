@@ -17,12 +17,11 @@ angular.module('doingfine.signupconfirm', [
 
 					console.log(Device.user()._id);
 					//Create New Firebase user with mobile user ID
-					FirebaseService.push('hello');
-					// FirebaseService.createUser(Device.user()._id)
-					// .then(function(){
-					// 	// PedometerService.start()
-					// 	console.log('Successfully created Firebase User');
-					// });
+					FirebaseService.createUser(Device.user()._id)
+					.then(function(){
+						// PedometerService.start()
+						console.log('Successfully created Firebase User');
+					});
 
 					$state.go('menu.status');
 				} else {
