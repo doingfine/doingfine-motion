@@ -1,31 +1,27 @@
 angular.module('service.firebase', ['firebase'])
 
-.factory('FirebaseService', ['$firebase',
-  function($firebase) {
-    var firebaseRef = new Firebase("https://doingfinemotion.firebaseio.com/");
+.factory('FirebaseService', ['$firebase', '$q',
+  function($firebase, $q) {
+    var firebaseRef = new Firebase("https://doingfinemotion.firebaseio.com");
     var usersRef = firebaseRef.child("users");
 
     var createUser = function(mobileUserID){
       var deferred = $q.defer();
       usersRef.child(mobileUserID).set({
-        currentState: {},
-        motionLastMin: {},
-        motionLastHr: {},
-        motionPerQHr: {}
+        currentState: null,
+        motionLastMin: null,
+        motionLastHr: null,
+        motionPerQHr: null
       }, function(err){
-        if (err) {
-          deferred.reject();
-        } else {
-          deferred.resolve();
-        }
+        if (err) { deferred.reject(); }
+        deferred.resolve();
       });
 
       return deferred.promise;
     };
 
     var push = function(data) {
-      console.log(fb);
-      firebaseRef.set(JSON.stringify(data));
+      firebaseRef.push(JSON.stringify(data));
     };
 
     return {
