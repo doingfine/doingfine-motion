@@ -9,11 +9,12 @@ angular.module('directive.d3pedometer', ['service.d3'])
       scope: {data: '=motionData'},
       link: function (scope, element, attrs) {
   
-        var width = 640;
-        var height = 640;
+        var width = 320; // ios device width
+        var height = 320;
         var center = { x: width / 2, y: width / 2};
-        var layer = 25;
-        var interval = 1000;
+        var layer = 12; // 1 layer of the 'onion' (mulitplied by magnitude to determine how large the circle grows)
+        var rest = 20; // radius of circle at rest
+        var interval = 1000; // ms
         var svg;
 
         var el = d3Service.select(element[0]);
@@ -85,10 +86,9 @@ angular.module('directive.d3pedometer', ['service.d3'])
           }
           return circles;
         };
-        circles = makeConcentricCircles(10, layer, layer, 'rgb(13, 215, 247)', center, svg);
+        circles = makeConcentricCircles(10, rest, layer, 'rgb(13, 215, 247)', center, svg);
 
         scope.$watch('data', function(newData) {
-          console.log("WATCHING: ", newData, new Date().toString());
           for (var i = 0; i < circles.length; i++) {
             circles[i].pulse(newData);
           }
