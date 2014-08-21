@@ -13,10 +13,14 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item ng-repeat="f in friends" nav-clear menu-close ng-click="getUserActivity(f)" class="item item-icon-left">
+        <ion-item nav-clear menu-close ng-click="getUserActivity(Device.user())" class="item item-icon-left">
           <i class="icon ion-ios7-person-outline" ></i>
-          {{f.first}} {{f.last}}
+          {{currentUserFirst}} {{currentUserLast}}
         </ion-item>
+          <ion-item ng-repeat="f in friends" nav-clear menu-close ng-click="getUserActivity(f)" class="item item-icon-left">
+            <i class="icon ion-ios7-person-outline" ></i>
+            {{f.first}} {{f.last}}
+          </ion-item>
 
 <!--         <ion-item nav-clear menu-close ui-sref="menu.profile">
           Profile
