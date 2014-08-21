@@ -11,6 +11,8 @@ angular.module('app', [
   'firebase',
   'services', // break up later
   'service.pedometer',
+  'service.d3',
+  'directive.d3pedometer',
   'service.firebase',
   'doingfine.startup',
   'doingfine.signupphone',
@@ -124,10 +126,13 @@ angular.module('app', [
       { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
-    console.log(window.localStorage.getItem('deviceUser'));
+    console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
 
+    // for testing purposes to short-circuit sign-in flow
+    var skipLogin = true;
     // if no device data is available, we can assume we are in the browser
-    if (ionic.Platform.device().uuid === undefined) {
+    if (ionic.Platform.device().uuid === undefined || skipLogin) {
+      console.log('Simulation Mode');
       // so we manually specify a deviceUser profile (simulation mode)
       Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
@@ -143,6 +148,5 @@ angular.module('app', [
     }
 
     console.log("Platform Done Ready");
-    // PedometerService.start();
   });
 });
