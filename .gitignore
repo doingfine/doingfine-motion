@@ -6,3 +6,6 @@ www/lib/bower_components
 .idea/workspace.xml
 
 .DS_Store
+
+# Ignore Cordova Build Files
+platforms/
