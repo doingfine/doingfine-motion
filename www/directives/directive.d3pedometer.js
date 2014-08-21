@@ -11,7 +11,7 @@ angular.module('directive.d3pedometer', ['service.d3'])
   
         var width = 320; // ios device width
         var height = 320;
-        var center = { x: width / 2, y: width / 2};
+        var center = { x: width / 2, y: height / 2};
         var layer = 12; // 1 layer of the 'onion' (mulitplied by magnitude to determine how large the circle grows)
         var rest = 20; // radius of circle at rest
         var interval = 1000; // ms
@@ -22,8 +22,8 @@ angular.module('directive.d3pedometer', ['service.d3'])
         var setup = function() {
           el.selectAll('svg').remove();
           svg = el.append('svg')
-            .attr('width', height)
-            .attr('height', width);
+            .attr('width', width)
+            .attr('height', height);
         };
         setup();
 

@@ -5,5 +5,7 @@ angular.module('doingfine.statushistory', [
 .controller('StatusHistoryController', function($scope, $state, $rootScope) {
 
   $scope.selectedFriend = $rootScope.selectedFriend;
+
+  $scope.stepsData = [1, 2, 5, 6];
   
 });

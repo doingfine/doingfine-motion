@@ -7,6 +7,7 @@ angular.module('app', [
   'service.firebase',
   'service.d3',
   'directive.d3pedometer',
+  'directive.d3stepschartoneday',
   'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
