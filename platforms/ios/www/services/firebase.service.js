@@ -23,13 +23,13 @@ angular.module('service.firebase', ['firebase'])
       return deferred.promise;
     };
 
-    var push = function(data) {
-      firebaseRef.push(JSON.stringify(data));
+    var update = function(data) {
+      console.log("inside update", data);
     };
 
     return {
       createUser: createUser,
-      push: push
+      update: update
     };
   }
 ]);

@@ -6,7 +6,7 @@ angular.module('service.pedometer', ['service.firebase'])
     var start = function(){
       window.PedometerCordova.init('', function(data) {
         // console.log(data);
-        FirebaseService.push(data);
+        FirebaseService.update(data);
         //process the data into format required by Firebase
         //fire AJAX request to send data to Firebase
       });
