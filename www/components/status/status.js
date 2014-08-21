@@ -29,5 +29,5 @@ angular.module('doingfine.status', [
       $scope.safeModeIcon = onIcon;
     }
   };
-
+	
 });

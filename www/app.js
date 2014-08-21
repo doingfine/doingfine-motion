@@ -8,8 +8,10 @@
 angular.module('app', [
   'ionic',
   'ngCordova',
+  'firebase',
   'services', // break up later
   'service.pedometer',
+  'service.firebase',
   'service.d3',
   'directive.d3pedometer',
   'doingfine.startup',
@@ -112,7 +114,7 @@ angular.module('app', [
 })
 
 // Run Time Operations (startup)
-.run(function($state, $ionicPlatform, Device, AccountService, PedometerService) {
+.run(function($state, $ionicPlatform, Device, AccountService, PedometerService, FirebaseService) {
   $ionicPlatform.ready(function() {
     console.log('Platform Ready');
 
@@ -144,6 +146,7 @@ angular.module('app', [
       // expect that accessing storage takes too long
       AccountService.authAndRoute();
     }
+
     console.log("Platform Done Ready");
   });
 });

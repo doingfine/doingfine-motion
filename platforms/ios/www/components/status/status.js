@@ -28,6 +28,4 @@ angular.module('doingfine.status', [
     }
   };
 
-
-
 });
