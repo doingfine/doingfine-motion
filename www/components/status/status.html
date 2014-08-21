@@ -11,7 +11,14 @@
     <button ng-hide="hasFriends" class="button button-icon icon ion-ios7-personadd-outline" ui-sref="newthreadselectfriend"></button>
   </ion-nav-buttons>
 
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="false" style="text-align: center; background: #454545;">
+
+  <br>
+  <h3 class="status">Is walking</h3>
+
+  <d3-pedometer motion-data="motionData"></d3-pedometer>
+
+  <h4 class="status">Last Moved 20 minutes ago</h4>
 
   </ion-content>
 </ion-view>

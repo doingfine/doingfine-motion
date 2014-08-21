@@ -17,3 +17,8 @@
   background-color: #FFFBCC;
   border: 1px solid yellow;
 }
+
+/* status page */
+.status {
+  color: gray;
+}
