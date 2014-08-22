@@ -14,7 +14,10 @@
       </label>
     </div>
     <div>
-      <img src="../../img/spinner.gif" ng-show="spinner" style="display: block; margin: 0 auto"></img>
+      <!-- <img desc='spinner' ng-src="{{spinnerImage}}"> -->
+      <img src="../../img/spinner.gif" ng-show=true style="display: block; margin: 0 auto">
+<!--       <div style="display: block; margin: 0 auto; background-image:url('spinner.gif');">
+      </div> -->
     </div>
     <ion-list>
       <ion-item ng-repeat="friend in friends |  filter: searchText | orderBy: 'last'" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->

@@ -15,6 +15,7 @@ angular.module('doingfine.newthreadselectfriend', [
   // grab contacts with phone numbers
   if (Device.isPhone()) {
     $scope.spinner = true;
+   // $scope.spinnerImage = '../../img/spinner.gif';
     Contacts.getAll().then(function(contacts) {
       $scope.friends = Contacts.contactsWithPhone(contacts);
       $scope.spinner = false;
