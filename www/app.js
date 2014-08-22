@@ -128,21 +128,14 @@ angular.module('app', [
       var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
       Device.user(deviceUser);
-<<<<<<< HEAD
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing local storage is OBVIOUSLY asynchronous
-      AccountService.authAndRoute();
     } else {
       PedometerService.start(Device.user()._id);
-    }
-=======
     }
 
     // Don't know why we need to do this here to work on phone
     // expect that accessing local storage is OBVIOUSLY asynchronous
     AccountService.authAndRoute();
 
->>>>>>> 08685ec4f1225c12b56eb94431946666d68b562a
     console.log("Platform Done Ready");
   });
 });
