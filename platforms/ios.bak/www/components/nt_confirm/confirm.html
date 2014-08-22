@@ -1,0 +1,22 @@
+<ion-view title="New Friend">
+  <ion-nav-bar>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" ui-sref="newthreadselectfriend">Cancel</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header" padding="true">
+
+    <div class="card">
+      <div class="item item-text-wrap">
+        Add {{selectedFriend.first}} {{selectedFriend.last}} as a friend. You will be able to see their real-time motion and motion history.
+      </div>
+    </div>
+
+    <!-- someone please center this :) -->
+    <button class="button button-large button-energized" ng-click="confirm()">
+       Add Friend
+    </button>
+
+  </ion-content>
+</ion-view>
