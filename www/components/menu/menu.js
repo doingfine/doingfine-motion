@@ -6,7 +6,8 @@ angular.module('doingfine.menu', [
 .controller('MenuController', function ($scope, $state, FriendsService, $rootScope, Device, API) {
   var currentUserId = Device.user()._id;
   $scope.currentUserFirst = Device.user().first;
-  $scope.currentUserLast = Device.user().last;API.getAllFriends(currentUserId)
+  $scope.currentUserLast = Device.user().last;
+  API.getAllFriends(currentUserId)
     .success(function (data) {
       $scope.friends = data;
     })
