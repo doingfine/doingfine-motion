@@ -5,34 +5,55 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>72D8DCF3-E407-4274-946E-D96A7B7D109C</string>
+<<<<<<< HEAD
+	<string>853F94D0-2E30-4B53-8B0B-5BE945D5ED24</string>
+=======
+	<string>E1C61D95-195F-4816-A2EB-37FCF0D70702</string>
+>>>>>>> 2fbc97bf81e257b8face57e130a97daa2593844d
 	<key>IDESourceControlProjectName</key>
 	<string>CameraTest</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>67E2DBF5-D6C3-44A9-8C22-444463B39B1C</key>
-		<string>https://github.com/nelsonriley/doingfine-motion.git</string>
+<<<<<<< HEAD
+		<key>356BA0FD-10E3-4BA1-8C83-B24BD4856B22</key>
+		<string>https://github.com/TheMadKoder/doingfine-motion.git</string>
+=======
+		<key>4AA1BF9A-E482-45B5-BFEB-8D19EDD8233E</key>
+		<string>https://github.com/andrewzey/doingfine-motion.git</string>
+>>>>>>> 2fbc97bf81e257b8face57e130a97daa2593844d
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>platforms/ios/CameraTest.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>67E2DBF5-D6C3-44A9-8C22-444463B39B1C</key>
+<<<<<<< HEAD
+		<key>356BA0FD-10E3-4BA1-8C83-B24BD4856B22</key>
+=======
+		<key>4AA1BF9A-E482-45B5-BFEB-8D19EDD8233E</key>
+>>>>>>> 2fbc97bf81e257b8face57e130a97daa2593844d
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nelsonriley/doingfine-motion.git</string>
+	<string>https://github.com/TheMadKoder/doingfine-motion.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>67E2DBF5-D6C3-44A9-8C22-444463B39B1C</string>
+<<<<<<< HEAD
+	<string>356BA0FD-10E3-4BA1-8C83-B24BD4856B22</string>
+=======
+	<string>4AA1BF9A-E482-45B5-BFEB-8D19EDD8233E</string>
+>>>>>>> 2fbc97bf81e257b8face57e130a97daa2593844d
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>67E2DBF5-D6C3-44A9-8C22-444463B39B1C</string>
+<<<<<<< HEAD
+			<string>356BA0FD-10E3-4BA1-8C83-B24BD4856B22</string>
+=======
+			<string>4AA1BF9A-E482-45B5-BFEB-8D19EDD8233E</string>
+>>>>>>> 2fbc97bf81e257b8face57e130a97daa2593844d
 			<key>IDESourceControlWCCName</key>
 			<string>doingfine-motion</string>
 		</dict>

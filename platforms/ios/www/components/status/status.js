@@ -5,13 +5,15 @@ angular.module('doingfine.status', [
   'service.d3'
 	])
 
-.controller('StatusController', function($scope, $rootScope, Device, d3Service) {
+.controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service) {
   $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
 
-  $scope.demoData = [10,20,30,40,60, 80, 20, 50];
+  // 'pulse' random km/h data every second
+  $scope.motionData = 0;
+  $interval(function() {
+    $scope.motionData = Math.floor(Math.random() * 12);
+  }, 1000);
 
-  $scope.d3Service = d3Service;
-  
   $scope.hasFriends = true;
   if (Device.user().friends.length === 0) {
    $scope.hasFriends = false;
@@ -27,5 +29,5 @@ angular.module('doingfine.status', [
       $scope.safeModeIcon = onIcon;
     }
   };
-
+	
 });
