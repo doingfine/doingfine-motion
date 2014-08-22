@@ -1,6 +1,6 @@
 angular.module('directive.d3pedometer', ['service.d3'])
 
-  .directive('d3Pedometer', function ($window, d3Service) {
+  .directive('d3Pedometer', function (d3Service) {
 
     return {
 
