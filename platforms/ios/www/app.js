@@ -123,7 +123,7 @@ angular.module('app', [
     console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
 
     // for testing purposes to short-circuit sign-in flow
-    var skipLogin = false;
+    var skipLogin = true;
     // if no device data is available, we can assume we are in the browser
     if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
@@ -144,7 +144,6 @@ angular.module('app', [
       AccountService.authAndRoute();
     }
 
-    PedometerService.start(Device.user()._id);
     console.log("Platform Done Ready");
   });
 });

@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CameraTest</name>
+    <name>Doing Fine</name>
     <description>
-        A mobile game for sharing funny faces.
+        Make Sure Your Loved One is OK.
     </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
+    <author email="nelsonriley@gmail.com" href="http://doingfine.azurewebsites.net/">
       Nelson Riley
     </author>
     <content src="index.html" />
+    <icon src="www/img/icons/icon@2x.png" />
     <access origin="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
