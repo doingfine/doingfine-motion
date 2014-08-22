@@ -17,15 +17,17 @@ angular.module('service.firebase', ['firebase'])
         }
       };
       usersRef.child(mobileUserID).set({
-        currentState: "abc"
+        currentState: " ",
+        currentSpeed: " "
       }, onComplete );
 
       return deferred.promise;
     };
 
-    var update = function(userId, data) {
+    var update = function(userId, curStatus, curSpeed) {
       usersRef.child(userId).update({
-        currentState: data
+        curStatus: curStatus,
+        currentSpeed: curSpeed
       });
     };
 
