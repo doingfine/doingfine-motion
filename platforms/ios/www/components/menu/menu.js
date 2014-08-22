@@ -13,7 +13,7 @@ angular.module('doingfine.menu', [
       console.log(err);
     });
   $scope.getUserActivity = function (f) {
-    $rootScope.selectedFriend = f;
+    $rootScope.selectedUser = f;
     $state.go('menu.status', null, {reload: true});
   };
  });
