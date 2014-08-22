@@ -1,6 +1,6 @@
 angular.module('directive.d3stepschartoneday', ['service.d3'])
 
-  .directive('d3StepsChartOneDay', function ($window, d3Service) {
+  .directive('d3StepsChartOneDay', function (d3Service) {
 
     return {
 
@@ -12,7 +12,7 @@ angular.module('directive.d3stepschartoneday', ['service.d3'])
         var d3 = d3Service;
   
         var width = 320; // ios device width
-        var height = 160;
+        var height = 80;
         var padding = 10;
         var y = d3.scale.linear()
                   .range([0 + padding, height - padding]);
@@ -27,7 +27,7 @@ angular.module('directive.d3stepschartoneday', ['service.d3'])
         x.domain([0, data.length - 1]); // orientation is left to right
        
         // Line generators
-        var line = d3.svg.line()
+        var graphedLine = d3.svg.line()
           .interpolate('monotone')
           .x(function(d, i) { return x(i); })
           .y(function(d) { return y(d); });
@@ -44,16 +44,22 @@ angular.module('directive.d3stepschartoneday', ['service.d3'])
         };
         setup();
 
-        // draw line
+        // draw flat line
         svg.append('path')
-          .attr('class', 'line')
+          .attr('class', 'flatline')
           .attr('d', flatLine(data));
 
-        // update line
-        d3.select('.line')
+        // raise the flat line to make a graph line
+        el.selectAll('.flatline')
           .transition()
           .duration(3000)
-          .attr('d', line(data));
+          .attr('class', 'graphline')
+          .attr('d', graphedLine(data));
+
+        // draw 2nd flat line
+        svg.append('path')
+          .attr('class', 'flatline')
+          .attr('d', flatLine(data));
 
       }
     };
