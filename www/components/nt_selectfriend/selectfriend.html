@@ -13,7 +13,9 @@
         <input type="text" placeholder="Search" ng-model="searchText">
       </label>
     </div>
-
+    <div>
+      <img src="../../img/spinner.gif" ng-show="spinner" style="display: block; margin: 0 auto"></img>
+    </div>
     <ion-list>
       <ion-item ng-repeat="friend in friends |  filter: searchText | orderBy: 'last'" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->
         {{friend.first}} {{friend.last}}
