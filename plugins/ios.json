@@ -7,21 +7,28 @@
         "files": {
             "framework": {
                 "parents": {
-                    "ImageIO.framework": [],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
                     "CoreLocation.framework": [
                         {
                             "xml": "true",
                             "count": 1
                         }
                     ],
-                    "CoreGraphics.framework": [
+                    "CoreMotion.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        },
                         {
                             "xml": "false",
                             "count": 1
                         }
                     ],
-                    "AssetsLibrary.framework": [],
-                    "MobileCoreServices.framework": [],
                     "AddressBook.framework": [
                         {
                             "xml": "true",
@@ -34,13 +41,9 @@
                             "count": 1
                         }
                     ],
-                    "CoreMotion.framework": [
+                    "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 1
-                        },
-                        {
-                            "xml": "true",
                             "count": 1
                         }
                     ]
@@ -50,11 +53,23 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "xml": "<feature name=\"AppleAdvertising\"><param name=\"ios-package\" value=\"AppleAdvertising\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"LocalNotification\"><param name=\"ios-package\" onload=\"true\" value=\"APPLocalNotification\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PedometerCordova\"><param name=\"ios-package\" value=\"PedometerCordova\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
                         {
@@ -63,10 +78,6 @@
                         },
                         {
                             "xml": "<feature name=\"Accelerometer\"><param name=\"ios-package\" value=\"CDVAccelerometer\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"LocalNotification\"><param name=\"ios-package\" onload=\"true\" value=\"APPLocalNotification\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
@@ -84,27 +95,23 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PedometerCordova\"><param name=\"ios-package\" value=\"PedometerCordova\" /></feature>",
-                            "count": 1
                         }
                     ]
-                }
-            },
-            "*-Info.plist": {
-                "parents": {
-                    "UIBackgroundModes": [],
-                    "NSLocationUsageDescription": []
                 }
             }
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.console": {
+        "com.aquto.cordova.AppleAdvertising": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "org.apache.cordova.device": {
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "fr.adfab.pedometercordova": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.contacts": {
@@ -113,15 +120,13 @@
         "org.apache.cordova.device-motion": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
         "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "fr.adfab.pedometercordova": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        }
+    }
 }

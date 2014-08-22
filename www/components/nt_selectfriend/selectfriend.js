@@ -14,8 +14,10 @@ angular.module('doingfine.newthreadselectfriend', [
   
   // grab contacts with phone numbers
   if (Device.isPhone()) {
+    $scope.spinner = true;
     Contacts.getAll().then(function(contacts) {
       $scope.friends = Contacts.contactsWithPhone(contacts);
+      $scope.spinner = false;
     }).catch(function(err) { console.log(err); });
   } else {
     $scope.friends = Contacts.contactsWithPhone();

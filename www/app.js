@@ -8,7 +8,6 @@ angular.module('app', [
   'service.d3',
   'directive.d3pedometer',
   'directive.d3stepschartoneday',
-  'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
   'doingfine.signupconfirm',
@@ -25,13 +24,6 @@ angular.module('app', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 
   $stateProvider
-
-    // start up
-    .state('startup', {
-      url: "/startup",
-      templateUrl: "components/startup/startup.html",
-      controller: 'StartUpController'
-    })
 
     // sign up flow
     .state('signupphone', {
@@ -104,7 +96,7 @@ angular.module('app', [
     });
 
   // Default route
-  $urlRouterProvider.otherwise('/startup');
+  // $urlRouterProvider.otherwise('');
 })
 
 // Run Time Operations (startup)
@@ -130,19 +122,17 @@ angular.module('app', [
       // so we manually specify a deviceUser profile (simulation mode)
       Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing local storage is OBVIOUSLY asynchronous
-      AccountService.authAndRoute();
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (window.localStorage.getItem('deviceUser') === null) {
       var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
       Device.user(deviceUser);
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing local storage is OBVIOUSLY asynchronous
-      AccountService.authAndRoute();
     }
+
+    // Don't know why we need to do this here to work on phone
+    // expect that accessing local storage is OBVIOUSLY asynchronous
+    AccountService.authAndRoute();
 
     console.log("Platform Done Ready");
   });
