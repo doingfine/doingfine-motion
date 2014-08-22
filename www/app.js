@@ -107,15 +107,16 @@ angular.module('app', [
     // Grab and set all device details (model, platform, uuid, version) if available
     Device.set(ionic.Platform.device());
     Device.setItem('type', 'phone');
+    console.log('Device Data Available: ', JSON.stringify(Device.get()));
 
     var simulationUsers = [
       { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
-    console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
+    console.log('Local Storage Device User at Startup: ', JSON.stringify(Device.user()));
 
-    // for testing purposes to short-circuit sign-in flow
-    var skipLogin = false;
+
+    var skipLogin = false; // usefule for testing
     // if no device data is available, we can assume we are in the browser
     if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
@@ -125,9 +126,16 @@ angular.module('app', [
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
     else if (Device.user() === null) {
-      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
-      console.log("Device User: ", JSON.stringify(deviceUser));
-      Device.user(deviceUser);
+      window.plugins.AppleAdvertising.getIDFV(
+        function(idfv) {
+          Device.setItem('idfv', idfv);
+          Device.user({ idfv: idfv, verified: false, first: '', last: '', phone: '+1' });
+          console.log('Local Storage Device User Created: ', JSON.stringify(Device.user()));
+        },
+        function() {
+          console.log('error fetching idfv');
+        }
+      );
     } else {
       PedometerService.start(Device.user()._id);
     }
@@ -136,6 +144,6 @@ angular.module('app', [
     // expect that accessing local storage is OBVIOUSLY asynchronous
     AccountService.authAndRoute();
 
-    console.log("Platform Done Ready");
+    console.log('Platform Done Ready');
   });
 });
