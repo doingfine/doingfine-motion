@@ -1,7 +1,7 @@
 angular.module('service.firebase', ['firebase'])
 
 .factory('FirebaseService', ['$firebase', '$q',
-  function($firebase, $q) {
+  function($firebase, $q, Device) {
     var firebaseRef = new Firebase("https://doingfinemotion.firebaseio.com");
     var usersRef = firebaseRef.child("users");
 
@@ -23,8 +23,10 @@ angular.module('service.firebase', ['firebase'])
       return deferred.promise;
     };
 
-    var update = function(data) {
-      console.log("inside update", data);
+    var update = function(userId, data) {
+      usersRef.child(userId).update({
+        currentState: data
+      });
     };
 
     return {

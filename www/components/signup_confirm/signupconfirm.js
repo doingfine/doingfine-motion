@@ -19,7 +19,7 @@ angular.module('doingfine.signupconfirm', [
 					//Create New Firebase user with mobile user ID
 					FirebaseService.createUser(Device.user()._id)
 					.then(function(){
-						PedometerService.start();
+						PedometerService.start(Device.user()._id);
 						console.log('Successfully created Firebase User');
 					});
 

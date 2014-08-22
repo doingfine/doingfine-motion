@@ -1,0 +1,25 @@
+<ion-view title="Sign Up">
+  <ion-nav-bar>
+  </ion-nav-bar>
+
+  <ion-content class="has-header" padding="true">
+
+    <form ng-submit="doPhone()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Your Phone Number: </span>
+          <input type="tel" ng-model="user.phone" autofocus="true">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Next</button>
+        </label>
+      </div>
+    </form>
+
+    <!-- <label class="item">
+      <button class="button button-block button-positive" ng-click="test()">Test</button>
+    </label> -->
+
+  </ion-content>
+
+</ion-view>
