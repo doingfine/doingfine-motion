@@ -8,7 +8,6 @@ angular.module('app', [
   'service.d3',
   'directive.d3pedometer',
   'directive.d3stepschartoneday',
-  'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
   'doingfine.signupconfirm',
@@ -25,13 +24,6 @@ angular.module('app', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 
   $stateProvider
-
-    // start up
-    .state('startup', {
-      url: "/startup",
-      templateUrl: "components/startup/startup.html",
-      controller: 'StartUpController'
-    })
 
     // sign up flow
     .state('signupphone', {
@@ -104,7 +96,7 @@ angular.module('app', [
     });
 
   // Default route
-  $urlRouterProvider.otherwise('/startup');
+  // $urlRouterProvider.otherwise('');
 })
 
 // Run Time Operations (startup)
@@ -123,7 +115,7 @@ angular.module('app', [
     console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
 
     // for testing purposes to short-circuit sign-in flow
-    var skipLogin = true;
+    var skipLogin = false;
     // if no device data is available, we can assume we are in the browser
     if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
