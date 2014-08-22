@@ -15,7 +15,7 @@
     </div>
 
     <ion-list>
-      <ion-item ng-repeat="friend in friends |  filter: searchText" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->
+      <ion-item ng-repeat="friend in friends |  filter: searchText | orderBy: 'last'" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->
         {{friend.first}} {{friend.last}}
       </ion-item>
     </ion-list>
