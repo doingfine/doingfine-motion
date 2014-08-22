@@ -18,7 +18,20 @@
   border: 1px solid yellow;
 }
 
-/* status page */
+/* status pages */
 .status {
   color: gray;
+}
+
+/* status history page */
+path.flatline {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+path.graphline {
+  fill: none;
+  stroke: rgb(13, 215, 247);
+  stroke-width: 1.5px;
 }

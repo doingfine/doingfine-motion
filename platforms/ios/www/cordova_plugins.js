@@ -1,6 +1,27 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/com.aquto.cordova.AppleAdvertising/www/AppleAdvertising.js",
+        "id": "com.aquto.cordova.AppleAdvertising.AppleAdvertising",
+        "clobbers": [
+            "window.plugins.AppleAdvertising"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
+        "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
+        "clobbers": [
+            "plugin.notification.local"
+        ]
+    },
+    {
+        "file": "plugins/fr.adfab.pedometercordova/www/PedometerCordova.js",
+        "id": "fr.adfab.pedometercordova.PedometerCordova",
+        "clobbers": [
+            "window.PedometerCordova"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.console/www/console-via-logger.js",
         "id": "org.apache.cordova.console.console",
         "clobbers": [
@@ -12,13 +33,6 @@ module.exports = [
         "id": "org.apache.cordova.console.logger",
         "clobbers": [
             "cordova.logger"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.device/www/device.js",
-        "id": "org.apache.cordova.device.device",
-        "clobbers": [
-            "device"
         ]
     },
     {
@@ -110,13 +124,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
-        "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
-        "clobbers": [
-            "plugin.notification.local"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
         "id": "org.apache.cordova.statusbar.statusbar",
         "clobbers": [
@@ -124,23 +131,24 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/fr.adfab.pedometercordova/www/PedometerCordova.js",
-        "id": "fr.adfab.pedometercordova.PedometerCordova",
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
         "clobbers": [
-            "window.PedometerCordova"
+            "device"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "com.aquto.cordova.AppleAdvertising": "0.0.1",
+    "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
+    "fr.adfab.pedometercordova": "1.O.O",
     "org.apache.cordova.console": "0.2.10",
-    "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.contacts": "0.2.11",
     "org.apache.cordova.device-motion": "0.2.9",
-    "de.appplant.cordova.plugin.local-notification": "0.8.0dev",
     "org.apache.cordova.statusbar": "0.1.7",
-    "fr.adfab.pedometercordova": "1.O.O"
+    "org.apache.cordova.device": "0.2.9"
 }
 // BOTTOM OF METADATA
 });
