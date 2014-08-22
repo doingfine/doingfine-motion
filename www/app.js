@@ -115,7 +115,7 @@ angular.module('app', [
     console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
 
     // for testing purposes to short-circuit sign-in flow
-    var skipLogin = true;
+    var skipLogin = false;
     // if no device data is available, we can assume we are in the browser
     if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
@@ -124,16 +124,25 @@ angular.module('app', [
       Device.setItem('type', 'internetdevice');
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
-    else if (window.localStorage.getItem('deviceUser') === null) {
+    else if (Device.user() === null) {
       var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
       console.log("Device User: ", JSON.stringify(deviceUser));
       Device.user(deviceUser);
+<<<<<<< HEAD
+      // Don't know why we need to do this here to work on phone
+      // expect that accessing local storage is OBVIOUSLY asynchronous
+      AccountService.authAndRoute();
+    } else {
+      PedometerService.start(Device.user()._id);
+    }
+=======
     }
 
     // Don't know why we need to do this here to work on phone
     // expect that accessing local storage is OBVIOUSLY asynchronous
     AccountService.authAndRoute();
 
+>>>>>>> 08685ec4f1225c12b56eb94431946666d68b562a
     console.log("Platform Done Ready");
   });
 });

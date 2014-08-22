@@ -6,7 +6,7 @@ angular.module('doingfine.status', [
 	])
 
 .controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service) {
-  $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
+  $scope.selectedUser = $rootScope.selectedUser || Device.user();
 
   // 'pulse' random km/h data every second
   $scope.motionData = 0;
