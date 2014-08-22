@@ -1,11 +1,18 @@
 'use strict';
 angular.module('doingfine.status', [
 	'ionic',
-	'services'
+	'services',
+  'service.d3'
 	])
 
-.controller('StatusController', function($scope, $rootScope, Device) {
+.controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service) {
   $scope.selectedFriend = $rootScope.selectedFriend || Device.user();
+
+  // 'pulse' random km/h data every second
+  $scope.motionData = 0;
+  $interval(function() {
+    $scope.motionData = Math.floor(Math.random() * 12);
+  }, 1000);
 
   $scope.hasFriends = true;
   if (Device.user().friends.length === 0) {

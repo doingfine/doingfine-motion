@@ -1499,3 +1499,26 @@ objc[88757]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.a
 2014-08-21 15:25:44.523 CameraTest[88757:70b] Platform Ready
 2014-08-21 15:25:44.523 CameraTest[88757:70b] {"first":"","last":"","verified":false,"idfv":"AE45UI","phone":"+1"}
 2014-08-21 15:25:44.524 CameraTest[88757:70b] Platform Done Ready
+objc[13301]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-08-21 17:18:07.878 CameraTest[13301:70b] Cannot find executable for CFBundle 0xa9a7cd0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-08-21 17:18:07.883 CameraTest[13301:70b] Cannot find executable for CFBundle 0xa89aa10 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-08-21 17:18:07.980 CameraTest[13301:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-21 17:18:08.047 CameraTest[13301:70b] Unlimited access to network resources
+2014-08-21 17:18:08.489 CameraTest[13301:70b] [CDVTimer][statusbar] 56.343019ms
+2014-08-21 17:18:08.489 CameraTest[13301:70b] [CDVTimer][localnotification] 0.073969ms
+2014-08-21 17:18:08.490 CameraTest[13301:70b] [CDVTimer][localnotification] 0.009954ms
+2014-08-21 17:18:08.490 CameraTest[13301:70b] [CDVTimer][TotalPluginStartup] 57.940006ms
+2014-08-21 17:18:08.622 CameraTest[13301:70b] Resetting plugins due to page load.
+2014-08-21 17:18:09.993 CameraTest[13301:70b] Finished load of: file:///Users/smr/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/D3725A47-8137-4DE3-9CA2-8157E4D575C2/CameraTest.app/www/index.html#/signup
+2014-08-21 17:18:10.227 CameraTest[13301:70b] Platform Ready
+2014-08-21 17:18:10.227 CameraTest[13301:70b] Local Storage Device User:  {"first":"","last":"","verified":false,"idfv":"AE45UI","phone":"+1"}
+2014-08-21 17:18:10.228 CameraTest[13301:70b] Simulation Mode
+2014-08-21 17:18:10.228 CameraTest[13301:70b] authAndRoute  [object Object]
+2014-08-21 17:18:10.228 CameraTest[13301:70b] Platform Done Ready
+2014-08-21 17:18:11.316 CameraTest[13301:70b] <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.6.0</center>
+</body>
+</html>

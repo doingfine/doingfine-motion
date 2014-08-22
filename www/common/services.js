@@ -5,6 +5,7 @@ angular.module('services', ['ngCordova', 'ionic'])
   return {
     // On app startup, either ask the user to sign up or go to their account
     authAndRoute: function() {
+      console.log('authAndRoute ', Device.user());
       if (Device.user().verified === false) {
         $state.go('signupphone');
       } else {
@@ -212,7 +213,7 @@ angular.module('services', ['ngCordova', 'ionic'])
   var apiCall = {};
 
   var devAPIRoute = 'https://doingfine4.localtunnel.me'; // https://doingfine.localtunnel.me
-  var prodAPIRoute = 'http://doinfine.azurewebsites.net';
+  var prodAPIRoute = 'http://doingfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
   var APIRoute = devAPIRoute;
