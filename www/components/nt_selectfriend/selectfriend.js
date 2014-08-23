@@ -11,10 +11,10 @@ angular.module('doingfine.newthreadselectfriend', [
 
   $scope.capturedImageURI = $rootScope.capturedImageURI;
   $scope.searchText;
+  $scope.spinner = true;
   
   // grab contacts with phone numbers
   if (Device.isPhone()) {
-    $scope.spinner = true;
     Contacts.getAll().then(function(contacts) {
       $scope.friends = Contacts.contactsWithPhone(contacts);
       $scope.spinner = false;
