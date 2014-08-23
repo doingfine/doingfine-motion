@@ -16,7 +16,7 @@ angular.module('doingfine.signupphone', [
     if (PHONE_REGEXP.test($scope.user.phone)) {
       // update user in local storage
       var deviceUser = Device.user();
-      deviceUser.phone = '+1' + Contacts.concisePhone($scope.user.phone);
+      deviceUser.phone = Contacts.concisePhone($scope.user.phone);
       Device.user(deviceUser);
       
       $state.go('signupname');
