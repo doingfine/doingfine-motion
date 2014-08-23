@@ -137,6 +137,8 @@ angular.module('app', [
         }
       );
     } else {
+      console.log(Device.user().id);
+      window.plugin.backgroundMode.enable();
       PedometerService.start(Device.user()._id);
     }
 
