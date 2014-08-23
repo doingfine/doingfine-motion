@@ -20,6 +20,9 @@
     <feature name="LocalNotification">
         <param name="ios-package" value="APPLocalNotification" />
     </feature>
+    <feature name="BackgroundMode">
+        <param name="ios-package" value="APPBackgroundMode" onload="true" />
+    </feature>
     <feature name="PedometerCordova">
         <param name="ios-package" value="PedometerCordova" />
     </feature>
