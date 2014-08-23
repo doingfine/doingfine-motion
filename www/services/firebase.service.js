@@ -35,7 +35,7 @@ angular.module('service.firebase', ['firebase'])
       console.log("called inside connectDownstream userid", userId);
       usersRef.child(userId).on('child_changed', function (snapshot) {
         console.log('Snap: ', JSON.stringify(snapshot.val()));
-        $rootScope.motionData = snapshot.val();
+        $rootScope.motionData = snapshot.val() * 5;
       });
     };
 
