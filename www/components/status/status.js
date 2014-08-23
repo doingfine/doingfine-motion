@@ -14,18 +14,18 @@ angular.module('doingfine.status', [
   FirebaseService.connectDownstream($scope.selectedUser._id);
   $scope.motionData = $rootScope.motionData = 0; // init
   $interval(function () {
-    if ( $scope.motionData < (0.3)) {
+    if ( $scope.motionData < (0.3 * 5)) {
       $scope.status = 'Is Still';
-    } else if ($scope.motionData < (2.8)) {
+    } else if ($scope.motionData < (2.8 * 5)) {
       $scope.status = 'Walking';
-    } else if ($scope.motionData < (5.5)) {
+    } else if ($scope.motionData < (5.5 * 5)) {
       $scope.status = 'Running';
-    } else if ($scope.motionData < (8)) {
+    } else if ($scope.motionData < (8 * 5)) {
       $scope.status = 'Sprinting';
     } else {
       $scope.status = 'Driving';
     } 
-    $scope.motionData = $rootScope.motionData * 5;
+    $scope.motionData = $rootScope.motionData;
     }, 500);
 
   $scope.hasFriends = true;
