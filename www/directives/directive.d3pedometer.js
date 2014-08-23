@@ -86,7 +86,7 @@ angular.module('directive.d3pedometer', ['service.d3'])
           }
           return circles;
         };
-        circles = makeConcentricCircles(10, rest, layer, 'rgb(13, 215, 247)', center, svg);
+        circles = makeConcentricCircles(10, rest, layer, 'rgb(40, 169, 162)', center, svg);
 
         scope.$watch('data', function(newData) {
           for (var i = 0; i < circles.length; i++) {
