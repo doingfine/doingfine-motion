@@ -7,15 +7,14 @@ angular.module('doingfine.newthreadselectfriend', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
-.controller('NTSelectFriendController', function($scope, $state, $rootScope, Device, Contacts) {
+.controller('NTSelectFriendController', function($scope, $state, $rootScope, Device, Contacts, $ionicLoading) {
 
   $scope.capturedImageURI = $rootScope.capturedImageURI;
   $scope.searchText;
+  $scope.spinner = true;
   
   // grab contacts with phone numbers
   if (Device.isPhone()) {
-    $scope.spinner = true;
-   // $scope.spinnerImage = '../../img/spinner.gif';
     Contacts.getAll().then(function(contacts) {
       $scope.friends = Contacts.contactsWithPhone(contacts);
       $scope.spinner = false;
