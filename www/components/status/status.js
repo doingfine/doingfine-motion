@@ -2,17 +2,31 @@
 angular.module('doingfine.status', [
 	'ionic',
 	'services',
-  'service.d3'
+  'service.d3',
+  'service.firebase'
 	])
 
-.controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service) {
+.controller('StatusController', function($scope, $rootScope, $interval, Device, d3Service, FirebaseService) {
   $scope.selectedUser = $rootScope.selectedUser || Device.user();
 
   // 'pulse' random km/h data every second
-  $scope.motionData = 0;
-  $interval(function() {
-    $scope.motionData = Math.floor(Math.random() * 12);
-  }, 1000);
+
+  FirebaseService.connectDownstream($scope.selectedUser._id);
+  $scope.motionData = $rootScope.motionData = 0; // init
+  $interval(function () {
+    if ( $scope.motionData < (0.3)) {
+      $scope.status = 'Is Still';
+    } else if ($scope.motionData < (2.8)) {
+      $scope.status = 'Walking';
+    } else if ($scope.motionData < (5.5)) {
+      $scope.status = 'Running';
+    } else if ($scope.motionData < (8)) {
+      $scope.status = 'Sprinting';
+    } else {
+      $scope.status = 'Driving';
+    } 
+    $scope.motionData = $rootScope.motionData * 5;
+    }, 500);
 
   $scope.hasFriends = true;
   if (Device.user().friends.length === 0) {

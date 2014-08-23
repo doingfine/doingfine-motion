@@ -212,7 +212,7 @@ angular.module('services', ['ngCordova', 'ionic'])
 .factory('API', function($q, $http, formDataObject, $state) {
   var apiCall = {};
 
-  var devAPIRoute = 'https://doingfine4.localtunnel.me'; // https://doingfine.localtunnel.me
+  var devAPIRoute = 'https://doingfine5.localtunnel.me'; // https://doingfine.localtunnel.me
   var prodAPIRoute = 'http://doingfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
