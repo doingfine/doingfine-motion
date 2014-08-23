@@ -22,7 +22,7 @@ angular.module('service.pedometer', ['service.firebase'])
             curStatus = 'Driving';
           }
 
-          FirebaseService.update(userId, curStatus, speed);
+          FirebaseService.connectUpstream(userId, curStatus, speed);
           //process the data into format required by Firebase
           //fire AJAX request to send data to Firebase
         }

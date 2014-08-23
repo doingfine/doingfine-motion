@@ -1,7 +1,7 @@
 angular.module('service.firebase', ['firebase'])
 
-.factory('FirebaseService', ['$firebase', '$q',
-  function($firebase, $q, Device) {
+.factory('FirebaseService', ['$firebase', '$q', '$rootScope',
+  function($firebase, $q, $rootScope) {
     var firebaseRef = new Firebase("https://doingfinemotion.firebaseio.com");
     var usersRef = firebaseRef.child("users");
 
@@ -24,16 +24,25 @@ angular.module('service.firebase', ['firebase'])
       return deferred.promise;
     };
 
-    var update = function(userId, curStatus, curSpeed) {
+    var connectUpstream = function(userId, curStatus, curSpeed) {
       usersRef.child(userId).update({
         curStatus: curStatus,
         currentSpeed: curSpeed
       });
     };
 
+    var connectDownstream = function (userId) {
+      console.log("called inside connectDownstream userid", userId);
+      usersRef.child(userId).on('child_changed', function (snapshot) {
+        console.log('Snap: ', JSON.stringify(snapshot.val()));
+        $rootScope.motionData = snapshot.val();
+      });
+    };
+
     return {
-      createUser: createUser,
-      update: update
+      connectUpstream: connectUpstream,
+      connectDownstream: connectDownstream,
+      createUser: createUser
     };
   }
 ]);
