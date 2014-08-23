@@ -13,14 +13,17 @@
         <input type="text" placeholder="Search" ng-model="searchText">
       </label>
     </div>
-    <div>
-      <img src="../../img/spinner.gif" ng-show="spinner" style="display: block; margin: 0 auto"></img>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <i class="icon ion-refreshing placeholder-icon" style="font-size: 72px;" ng-show="spinner"></i>
+      </div>
+      <div class="col"></div>
     </div>
     <ion-list>
       <ion-item ng-repeat="friend in friends |  filter: searchText | orderBy: 'last'" ng-click="selectFriend(friend)"> <!--   orderBy: 'first'  -->
         {{friend.first}} {{friend.last}}
       </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-view>
