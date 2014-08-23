@@ -216,7 +216,7 @@ angular.module('services', ['ngCordova', 'ionic'])
   var prodAPIRoute = 'http://doingfine.azurewebsites.net';
 
   // Set the API route to use. devAPIRoute for testing, prodAPIRoute for production.
-  var APIRoute = devAPIRoute;
+  var APIRoute = prodAPIRoute;
 
   apiCall.newUser = function(userData) {
     return $http({
