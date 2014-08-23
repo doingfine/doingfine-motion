@@ -8,7 +8,6 @@ angular.module('app', [
   'service.d3',
   'directive.d3pedometer',
   'directive.d3stepschartoneday',
-  'doingfine.startup',
   'doingfine.signupphone',
   'doingfine.signupname',
   'doingfine.signupconfirm',
@@ -25,13 +24,6 @@ angular.module('app', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 
   $stateProvider
-
-    // start up
-    .state('startup', {
-      url: "/startup",
-      templateUrl: "components/startup/startup.html",
-      controller: 'StartUpController'
-    })
 
     // sign up flow
     .state('signupphone', {
@@ -104,7 +96,7 @@ angular.module('app', [
     });
 
   // Default route
-  $urlRouterProvider.otherwise('/startup');
+  // $urlRouterProvider.otherwise('');
 })
 
 // Run Time Operations (startup)
@@ -115,35 +107,43 @@ angular.module('app', [
     // Grab and set all device details (model, platform, uuid, version) if available
     Device.set(ionic.Platform.device());
     Device.setItem('type', 'phone');
+    console.log('Device Data Available: ', JSON.stringify(Device.get()));
 
     var simulationUsers = [
       { _id: '53efd4b77598f0a0397899f7', first: 'Nelson', last: 'Wiley', phone: '+18027936146', verified: true, friends: [] }
     ];
 
-    console.log('Local Storage Device User: ', window.localStorage.getItem('deviceUser'));
+    console.log('Local Storage Device User at Startup: ', JSON.stringify(Device.user()));
 
-    // for testing purposes to short-circuit sign-in flow
-    var skipLogin = true;
+
+    var skipLogin = false; // usefule for testing
     // if no device data is available, we can assume we are in the browser
     if (skipLogin || ionic.Platform.device().uuid === undefined) {
       console.log('Simulation Mode');
       // so we manually specify a deviceUser profile (simulation mode)
       Device.user(simulationUsers[0]);
       Device.setItem('type', 'internetdevice');
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing local storage is OBVIOUSLY asynchronous
-      AccountService.authAndRoute();
     }
     // otherwise if a user doesn't yet exist in the phone's local storage, we create one
-    else if (window.localStorage.getItem('deviceUser') === null) {
-      var deviceUser = { first: '', last: '', verified: false, idfv: 'AE45UI', phone: '+1' }; // TODO: get vfid
-      console.log("Device User: ", JSON.stringify(deviceUser));
-      Device.user(deviceUser);
-      // Don't know why we need to do this here to work on phone
-      // expect that accessing local storage is OBVIOUSLY asynchronous
-      AccountService.authAndRoute();
+    else if (Device.user() === null) {
+      window.plugins.AppleAdvertising.getIDFV(
+        function(idfv) {
+          Device.setItem('idfv', idfv);
+          Device.user({ idfv: idfv, verified: false, first: '', last: '', phone: '+1' });
+          console.log('Local Storage Device User Created: ', JSON.stringify(Device.user()));
+        },
+        function() {
+          console.log('error fetching idfv');
+        }
+      );
+    } else {
+      PedometerService.start(Device.user()._id);
     }
 
-    console.log("Platform Done Ready");
+    // Don't know why we need to do this here to work on phone
+    // expect that accessing local storage is OBVIOUSLY asynchronous
+    AccountService.authAndRoute();
+
+    console.log('Platform Done Ready');
   });
 });

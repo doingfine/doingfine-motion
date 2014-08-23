@@ -4,7 +4,7 @@ angular.module('doingfine.statushistory', [
 
 .controller('StatusHistoryController', function($scope, $state, $rootScope) {
 
-  $scope.selectedFriend = { first: 'Nelson' }; // $rootScope.selectedFriend || Device.user();
+  $scope.selectedUser = $rootScope.selectedUser;
 
   $scope.days = [
                   { day: 'Today' }, { data: [0, 5, 0, 9, 5, 0, 2, 3, 1, 1, 5] },

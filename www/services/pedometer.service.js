@@ -6,9 +6,26 @@ angular.module('service.pedometer', ['service.firebase'])
     var start = function(userId){
       window.PedometerCordova.init('', function(data) {
         // console.log(data);
-        FirebaseService.update(userId, data);
-        //process the data into format required by Firebase
-        //fire AJAX request to send data to Firebase
+        var curStatus = '', curSpeed = '', speed = 0;
+        // get speed from data
+        speed = parseFloat(data.match(/[-+]?\b[0-9]+(\.[0-9]+)?\b/)[0]);
+        if ( speed !== null) {
+          if ( speed < 0.3) {
+            curStatus = 'Is Still';
+          } else if (speed < 2.8) {
+            curStatus = 'Walking';
+          } else if (speed < 5.5) {
+            curStatus = 'Running';
+          } else if (speed < 8) {
+            curStatus = 'Sprinting';
+          } else {
+            curStatus = 'Driving';
+          }
+
+          FirebaseService.update(userId, curStatus, speed);
+          //process the data into format required by Firebase
+          //fire AJAX request to send data to Firebase
+        }
       });
       window.PedometerCordova.start();
     };
