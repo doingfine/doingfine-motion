@@ -7,7 +7,7 @@ angular.module('doingfine.newthreadselectfriend', [
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
-.controller('NTSelectFriendController', function($scope, $state, $rootScope, Device, Contacts, $ionicLoading) {
+.controller('NTSelectFriendController', function($scope, $state, $rootScope, Device, Contacts) {
 
   $scope.capturedImageURI = $rootScope.capturedImageURI;
   $scope.searchText;
